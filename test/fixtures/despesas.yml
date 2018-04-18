@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2018-04-04
+  valor: 9.99
+  natureza: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:41:14
+  data_alteracao: 2018-04-04 15:41:14
+  descricao_tipo: one
+
+two:
+  data: 2018-04-04
+  valor: 9.99
+  natureza: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:41:14
+  data_alteracao: 2018-04-04 15:41:14
+  descricao_tipo: two

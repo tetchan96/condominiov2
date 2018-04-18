@@ -1,0 +1,90 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Receita a receber</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Receita a receber</a></li>
+          <li class="active">ID</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Receita a receber: ID</strong>
+          </div>
+          <div class="card-body card-block">
+
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Valor:</strong>
+  <%= @receita_a_receber.valor %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @receita_a_receber.data %>
+</p>
+
+<p>
+  <strong>Natureza:</strong>
+  <%= @receita_a_receber.natureza %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @receita_a_receber.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @receita_a_receber.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @receita_a_receber.data_alteracao %>
+</p>
+
+<p>
+  <strong>Apartamento:</strong>
+  <%= @receita_a_receber.apartamento.unidade %>
+</p>
+
+<p>
+  <strong>Descricao tipo:</strong>
+  <%= @receita_a_receber.descricao_tipo.nome %>
+</p>
+
+<p>
+  <strong>Morador:</strong>
+  <%= @receita_a_receber.morador.nome %>
+</p>
+
+
+</div>
+        </div>
+        </div>
+        </div>
+        <%= link_to 'Editar', edit_receita_a_receber_path(@receita_a_receber), class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', receita_a_recebers_path, class: "btn btn-outline-primary", role:"button" %>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->

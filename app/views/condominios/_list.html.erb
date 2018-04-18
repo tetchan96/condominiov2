@@ -1,0 +1,23 @@
+            <table id="bootstrap-data-table" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Saldo</th>
+      <th>Fundo reserva</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% condominios.each do |condominio| %>
+      <tr>
+        <td><%= condominio.nome %></td>
+        <td><%= condominio.saldo %></td>
+        <td><%= condominio.fundo_reserva %></td>
+        <td><%= link_to 'Show', condominio %></td>
+        <td><%= link_to 'Edit', edit_condominio_path(condominio) %></td>
+        <td><%= link_to 'Destroy', condominio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

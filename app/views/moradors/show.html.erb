@@ -1,0 +1,108 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Morador</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Morador</a></li>
+          <li class="active">ID</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Morador: ID</strong>
+          </div>
+          <div class="card-body card-block">
+<p>
+  <strong>Nome:</strong>
+  <%= @morador.nome %>
+</p>
+
+<p>
+  <strong>Rg:</strong>
+  <%= @morador.rg %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @morador.cpf %>
+</p>
+
+<p>
+  <strong>Tel residencial:</strong>
+  <%= @morador.tel_residencial %>
+</p>
+
+<p>
+  <strong>Tel celular:</strong>
+  <%= @morador.tel_celular %>
+</p>
+
+<p>
+  <strong>Tel comercial:</strong>
+  <%= @morador.tel_comercial %>
+</p>
+
+<p>
+  <strong>Ramal:</strong>
+  <%= @morador.ramal %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @morador.email %>
+</p>
+
+<p>
+  <strong>Parentesco:</strong>
+  <%= @morador.parentesco %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @morador.tipo %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @morador.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @morador.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @morador.data_alteracao %>
+</p>
+
+<p>
+  <strong>Apartamento:</strong>
+  <%= @morador.apartamento %>
+</p>
+        </div>
+        </div>
+        </div>
+        <%= link_to 'Editar', edit_morador_path(@morador), class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', @morador.apartamento, class: "btn btn-outline-primary", role:"button" %>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->

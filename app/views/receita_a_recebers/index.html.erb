@@ -1,0 +1,42 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1>Receita a Receber</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li class="active">Receita a Receber</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+
+      <p id="notice"><%= notice %></p>
+      <!--<h1>Descricao Tipos</h1>-->
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Receitas a Receber</strong>
+          </div>
+          <div class="card-body">
+            <%= render 'list', receita_a_recebers: @receita_a_recebers %> 
+            <%= link_to 'Adicionar Receita a Receber', new_receita_a_receber_path, class: "btn btn-outline-primary", role:"button" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->
+

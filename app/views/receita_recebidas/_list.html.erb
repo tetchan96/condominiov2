@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Data</th>
+      <th>Ativo</th>
+      <th>Receita a receber</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% receita_recebidas.each do |receita_recebida| %>
+      <tr>
+        <td><%= receita_recebida.valor %></td>
+        <td><%= receita_recebida.data %></td>
+        <td><%= receita_recebida.ativo %></td>
+        <td><%= receita_recebida.receita_a_receber.descricao_tipo.nome %></td>
+        <td><%= link_to 'Show', receita_recebida %></td>
+        <td><%= link_to 'Edit', edit_receita_recebida_path(receita_recebida) %></td>
+        <td><%= link_to 'Destroy', receita_recebida, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

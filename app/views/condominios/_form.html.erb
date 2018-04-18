@@ -1,0 +1,62 @@
+<%= form_for(condominio) do |f| %>
+  <% if condominio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(condominio.errors.count, "error") %> prohibited this condominio from being saved:</h2>
+
+      <ul>
+      <% condominio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <%= f.label :nome, class: "form-control-label", for: :nome %>
+    </div>
+    <div class="col col-md-6">
+      <%= f.text_field :nome, class:"form-control", placeholder: :nome %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
+  </div>
+</div>
+
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <%= f.label :saldo, class: "form-control-label", for: :saldo %>
+    </div>
+    <div class="col col-md-6">
+      <%= f.text_field :saldo, class:"form-control", placeholder: :saldo %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
+  </div>
+</div>
+
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <%= f.label :fundo_reserva, class: "form-control-label", for: :fundo_reserva %>
+    </div>
+    <div class="col col-md-6">
+      <%= f.text_field :fundo_reserva, class:"form-control", placeholder: :fundo_reserva %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col col-md-12">
+    <div class="row">
+      <%= f.submit class: "btn btn-primary btn-sm" %>
+      <!--<button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-dot-circle-o"></i> Submit
+      </button>-->
+      <button type="reset" class="btn btn-danger btn-sm">
+        <i class="fa fa-ban"></i> Reset
+      </button>
+    </div>
+  </div>
+</div>
+<% end %>

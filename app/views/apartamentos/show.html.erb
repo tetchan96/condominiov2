@@ -1,0 +1,98 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Apartamento</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Apartamento</a></li>
+          <li class="active">ID</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Apartamento: ID</strong>
+          </div>
+          <div class="card-body card-block">
+<p>
+  <strong>Unidade:</strong>
+  <%= @apartamento.unidade %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @apartamento.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @apartamento.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @apartamento.data_alteracao %>
+</p>
+
+<p>
+  <strong>Condominio:</strong>
+  <%= @apartamento.condominio.nome %>
+</p>
+</div>
+</div>
+</div>
+</div>
+        
+        <div class="form-group">
+          <%= link_to 'Editar', edit_apartamento_path(@apartamento), class: "btn btn-outline-primary", role:"button" %>
+          <%= link_to 'Voltar', @apartamento.condominio, class: "btn btn-outline-primary", role:"button" %>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Moradores</strong>
+          </div>
+          <div class="card-body">
+            <%= render 'moradors/list', moradors: @moradors %>
+            <%= link_to 'Adicionar Morador', new_morador_path, class: "btn btn-outline-primary", role:"button" %>
+          </div>
+        </div>  
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Veiculos</strong>
+          </div>
+          <div class="card-body">
+            <%= render 'veiculos/list', veiculos: @veiculos %>
+            <%= link_to 'Adicionar Veiculo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
+          </div>
+        </div> 
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Funcionarios</strong>
+          </div>
+          <div class="card-body">
+            <%= render 'funcionarios/list', funcionarios: @funcionarios %>
+            <%= link_to 'Adicionar Veiculo', new_funcionario_path, class: "btn btn-outline-primary", role:"button" %>
+          </div>
+        </div> 
+        
+        
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->
+

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  login: MyString
+  senha: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:39:56
+  data_alteracao: 2018-04-04 15:39:56
+  condominio: one
+
+two:
+  nome: MyString
+  login: MyString
+  senha: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:39:56
+  data_alteracao: 2018-04-04 15:39:56
+  condominio: two

@@ -1,0 +1,40 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Editar Apartamento</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Apartamento</a></li>
+          <li><a href="#"><% @apartamento.id %></a></li>
+          <li class="active">Editar</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Editar</strong>
+          </div>
+          <div class="card-body card-block">
+            <%= render 'form', apartamento: @apartamento %>
+          </div>
+        </div>
+        <%= link_to 'Exibir', @apartamento, class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', @apartamento.condominio, class: "btn btn-outline-primary", role:"button" %>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->

@@ -1,0 +1,38 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Adicionar Descrição Despesa/Receita</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Descrição Despesa/Receita</a></li>
+          <li class="active">Adicionar</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Adicionar</strong>
+          </div>
+          <div class="card-body card-block">
+            <%= render 'form', descricao_tipo: @descricao_tipo %>
+          </div>
+        </div>
+          <%= link_to 'Voltar', descricao_tipos_path, class: "btn btn-outline-primary", role:"button" %>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->

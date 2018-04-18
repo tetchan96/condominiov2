@@ -1,0 +1,27 @@
+            <table id="bootstrap-data-table" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Valor</th>
+                  <th>Natureza</th>
+                   <th>Ativo</th>
+                  <th>Descricao tipo</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+            
+              <tbody>
+                <% despesas.each do |despesa| %>
+                  <tr>
+                    <td><%= despesa.data %></td>
+                    <td><%= despesa.valor %></td>
+                    <td><%= despesa.natureza %></td>
+                    <td><%= despesa.ativo %></td>
+                    <td><%= despesa.descricao_tipo.nome %></td>
+                    <td><%= link_to 'Exibir', despesa %></td>
+                    <td><%= link_to 'Editar', edit_despesa_path(despesa) %></td>
+                    <td><%= link_to 'Excluir', despesa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>

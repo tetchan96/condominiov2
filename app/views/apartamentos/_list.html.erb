@@ -1,0 +1,22 @@
+<table id="bootstrap-data-table" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Unidade</th>
+      <th>Ativo</th>
+      <th>Condominio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% apartamentos.each do |apartamento| %>
+      <tr>
+        <td><%= apartamento.unidade %></td>
+        <td><%= apartamento.ativo %></td>
+        <td><%= apartamento.condominio.nome %></td>
+        <td><%= link_to 'Show', apartamento %></td>
+        <td><%= link_to 'Edit', edit_apartamento_path(apartamento) %></td>
+        <td><%= link_to 'Destroy', apartamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

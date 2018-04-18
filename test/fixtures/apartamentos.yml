@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unidade: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:40:01
+  data_alteracao: 2018-04-04 15:40:01
+  condominio: one
+
+two:
+  unidade: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:40:01
+  data_alteracao: 2018-04-04 15:40:01
+  condominio: two

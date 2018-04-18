@@ -1,0 +1,74 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Descrição</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Descrição</a></li>
+          <li class="active">ID</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Descrição: ID</strong>
+          </div>
+          <div class="card-body card-block">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @descricao_tipo.nome %>
+</p>
+
+<p>
+  <strong>Natureza:</strong>
+  <%= @descricao_tipo.natureza %>
+</p>
+
+<p>
+  <strong>Valor fixo:</strong>
+  <%= @descricao_tipo.valor_fixo %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @descricao_tipo.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @descricao_tipo.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @descricao_tipo.data_alteracao %>
+</p>
+
+
+</div>
+        </div>
+        </div>
+        </div>
+        <%= link_to 'Editar', edit_descricao_tipo_path(@descricao_tipo), class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', descricao_tipos_path, class: "btn btn-outline-primary", role:"button" %>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->

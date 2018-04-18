@@ -1,0 +1,41 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1>Condomínio</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li class="active">Condomínio</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+
+      <p id="notice"><%= notice %></p>
+      <!--<h1>Descricao Tipos</h1>-->
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Condomínios</strong>
+          </div>
+          <div class="card-body">
+            <%= render 'list', condominios: @condominios %>            
+            <%= link_to 'Adicionar Condominio', new_condominio_path, class: "btn btn-outline-primary", role:"button" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->

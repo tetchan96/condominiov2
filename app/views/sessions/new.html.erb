@@ -1,0 +1,40 @@
+<div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <img class="align-content" src="/images/logo.png" alt="" style="height: 100px;">
+                 </div>
+                <div class="login-form">
+                 <%= form_for :session, url: sign_in_path do |f| %>
+                        <div class="form-group">
+                            <%= f.label :login %><br />
+                            <%= f.text_field :login, autofocus: true, class: "form-control", placeholder: "Login" %>
+                        </div>
+                        <div class="form-group">
+                          <%= f.label "Senha" %><br />
+                          <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+                        </div>
+                        <!--<div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                            <label class="pull-right">
+                                <a href="#">Forgotten Password?</a>
+                            </label>
+
+                        </div>-->
+                        <%= f.submit "Log in", class: "btn btn-success btn-flat m-b-30 m-t-30" %>
+                        <!--<div class="social-login-content">
+                            <div class="social-button">
+                                <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Sign in with facebook</button>
+                                <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Sign in with twitter</button>
+                            </div>
+                        </div>
+                        <div class="register-link m-t-15 text-center">
+                            <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
+                        </div>-->
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>

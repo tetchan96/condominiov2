@@ -1,0 +1,78 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Funcionário</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Funcionário</a></li>
+          <li class="active">ID</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Funcionário: ID</strong>
+          </div>
+          <div class="card-body card-block">
+<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @funcionario.nome %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @funcionario.tel %>
+</p>
+
+<p>
+  <strong>Dias autorizados:</strong>
+  <%= @funcionario.dias_autorizados %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @funcionario.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @funcionario.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @funcionario.data_alteracao %>
+</p>
+
+<p>
+  <strong>Apartamento:</strong>
+  <%= @funcionario.apartamento %>
+</p>
+</div>
+        </div>
+        </div>
+        </div>
+        <%= link_to 'Editar', edit_funcionario_path(@funcionario), class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', @funcionario.apartamento, class: "btn btn-outline-primary", role:"button" %>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->
+

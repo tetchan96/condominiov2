@@ -1,0 +1,31 @@
+<table id="bootstrap-data-table" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Data</th>
+      <th>Natureza</th>
+      <th>Ativo</th>
+      <th>Apartamento</th>
+      <th>Descricao tipo</th>
+      <th>Morador</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% receita_a_recebers.each do |receita_a_receber| %>
+      <tr>
+        <td><%= receita_a_receber.valor %></td>
+        <td><%= receita_a_receber.data %></td>
+        <td><%= receita_a_receber.natureza %></td>
+        <td><%= receita_a_receber.ativo %></td>
+        <td><%= receita_a_receber.apartamento.unidade %></td>
+        <td><%= receita_a_receber.descricao_tipo.nome %></td>
+        <td><%= receita_a_receber.morador.nome %></td>
+        <td><%= link_to 'Show', receita_a_receber %></td>
+        <td><%= link_to 'Edit', edit_receita_a_receber_path(receita_a_receber) %></td>
+        <td><%= link_to 'Destroy', receita_a_receber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+            </table>

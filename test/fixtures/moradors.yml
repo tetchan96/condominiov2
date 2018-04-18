@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  rg: MyString
+  cpf: MyString
+  tel_residencial: MyString
+  tel_celular: MyString
+  tel_comercial: MyString
+  ramal: MyString
+  email: MyString
+  parentesco: MyString
+  tipo: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:40:15
+  data_alteracao: 2018-04-04 15:40:15
+  apartamento: one
+
+two:
+  nome: MyString
+  rg: MyString
+  cpf: MyString
+  tel_residencial: MyString
+  tel_celular: MyString
+  tel_comercial: MyString
+  ramal: MyString
+  email: MyString
+  parentesco: MyString
+  tipo: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:40:15
+  data_alteracao: 2018-04-04 15:40:15
+  apartamento: two

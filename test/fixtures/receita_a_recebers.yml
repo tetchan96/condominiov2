@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  valor: 9.99
+  data: 2018-04-04
+  natureza: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:41:06
+  data_alteracao: 2018-04-04 15:41:06
+  apartamento: one
+  descricao_tipo: one
+  morador: one
+
+two:
+  valor: 9.99
+  data: 2018-04-04
+  natureza: MyString
+  ativo: false
+  data_inclusao: 2018-04-04 15:41:06
+  data_alteracao: 2018-04-04 15:41:06
+  apartamento: two
+  descricao_tipo: two
+  morador: two

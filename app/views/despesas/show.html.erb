@@ -1,0 +1,77 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Despesa</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Despesa</a></li>
+          <li class="active">ID</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Despesa: ID</strong>
+          </div>
+          <div class="card-body card-block">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @despesa.data %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @despesa.valor %>
+</p>
+
+<p>
+  <strong>Natureza:</strong>
+  <%= @despesa.natureza %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @despesa.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @despesa.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @despesa.data_alteracao %>
+</p>
+
+<p>
+  <strong>Descricao tipo:</strong>
+  <%= @despesa.descricao_tipo.nome %>
+</p>
+
+</div>
+        </div>
+        </div>
+        </div>
+        <%= link_to 'Editar', edit_despesa_path(@despesa), class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', despesas_path, class: "btn btn-outline-primary", role:"button" %>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->
