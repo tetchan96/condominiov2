@@ -37,30 +37,36 @@ module BalancoHelper
   def cal_receitas ano
     @list_receitas = [] 
     index = 0
-    consultar_descricao_receitas_ano(ano).each do |value|
-      @list_receitas[index]=[value, [
-          0=>consultar_receitas_por_descricao_data(value, ano, 1),
-          1=>consultar_receitas_por_descricao_data(value, ano, 2),
-          2=>consultar_receitas_por_descricao_data(value, ano, 3),
-          3=>consultar_receitas_por_descricao_data(value, ano, 4),
-          4=>consultar_receitas_por_descricao_data(value, ano, 5),
-          5=>consultar_receitas_por_descricao_data(value, ano, 6),
-          6=>consultar_receitas_por_descricao_data(value, ano, 7),
-          7=>consultar_receitas_por_descricao_data(value, ano, 8),
-          8=>consultar_receitas_por_descricao_data(value, ano, 9),
-          9=>consultar_receitas_por_descricao_data(value, ano, 10),
-          10=>consultar_receitas_por_descricao_data(value, ano, 11),
-          11=>consultar_receitas_por_descricao_data(value, ano, 12)
-        ]]
-        soma = BigDecimal.new(0)
-        @list_receitas[index][1].each do |value|
-          puts 'teste'
-          puts value
-          soma+=value
-        end
-        puts soma
-    end
+    @lista_receitas_total = [0,0,0,0,0,0,0,0,0,0,0,0,0]
     
+    consultar_descricao_receitas_ano(ano).each do |value|
+      array = []
+      array[0]=consultar_receitas_por_descricao_data(value, ano, 1)
+      array[1]=consultar_receitas_por_descricao_data(value, ano, 2)
+      array[2]=consultar_receitas_por_descricao_data(value, ano, 3)
+      array[3]=consultar_receitas_por_descricao_data(value, ano, 4)
+      array[4]=consultar_receitas_por_descricao_data(value, ano, 5)
+      array[5]=consultar_receitas_por_descricao_data(value, ano, 6)
+      array[6]=consultar_receitas_por_descricao_data(value, ano, 7)
+      array[7]=consultar_receitas_por_descricao_data(value, ano, 8)
+      array[8]=consultar_receitas_por_descricao_data(value, ano, 9)
+      array[9]=consultar_receitas_por_descricao_data(value, ano, 10)
+      array[10]=consultar_receitas_por_descricao_data(value, ano, 11)
+      array[11]=consultar_receitas_por_descricao_data(value, ano, 12)
+      soma = 0
+      array.each do |valor|
+        soma += valor
+      end
+      array[12] = soma
+      i = 0
+      @lista_receitas_total.each do |total|
+        total += array[i]
+        @lista_receitas_total[i]=total
+        i+=1
+      end
+      @list_receitas[index]=[value, array]
+      
+    end
   end
   
   
