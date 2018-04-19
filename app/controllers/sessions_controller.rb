@@ -8,11 +8,7 @@ class SessionsController < ApplicationController
       @condominio = Condominio.all[0]
       set_current_condominio(@condominio)
       #redirect_to @user
-      if @condominio.nill
-        redirect_to new_condominio_path
-      else
-        redirect_to @condominio
-      end
+      redirect_to @condominio ? @condominio : new_condominio_path
     else
       render 'new'
     end
