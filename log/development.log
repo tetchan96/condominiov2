@@ -980,3 +980,1113 @@ Processing by CondominiosController#show as HTML
 Completed 200 OK in 67ms (Views: 63.9ms | ActiveRecord: 0.6ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCondominios (20180404153950)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "condominios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "saldo" decimal, "fundo_reserva" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404153950"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsuarios (20180404153956)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "usuarios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "login" varchar, "senha" varchar, "ativo" boolean, "data_inclusao" datetime, "data_alteracao" datetime, "condominio_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_usuarios_on_condominio_id" ON "usuarios" ("condominio_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404153956"]]
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateApartamentos (20180404154001)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "apartamentos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "unidade" varchar, "ativo" boolean, "data_inclusao" datetime, "data_alteracao" datetime, "condominio_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_apartamentos_on_condominio_id" ON "apartamentos" ("condominio_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404154001"]]
+  [1m[35m (13.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFuncionarios (20180404154007)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "funcionarios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "tel" varchar, "dias_autorizados" varchar, "ativo" boolean, "data_inclusao" datetime, "data_alteracao" datetime, "apartamento_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_funcionarios_on_apartamento_id" ON "funcionarios" ("apartamento_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404154007"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateVeiculos (20180404154011)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "veiculos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "marca" varchar, "modelo" varchar, "cor" varchar, "placa" varchar, "ativo" boolean, "data_inclusao" datetime, "data_alteracao" datetime, "apartamento_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_veiculos_on_apartamento_id" ON "veiculos" ("apartamento_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404154011"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateMoradors (20180404154015)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "moradors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "rg" varchar, "cpf" varchar, "tel_residencial" varchar, "tel_celular" varchar, "tel_comercial" varchar, "ramal" varchar, "email" varchar, "parentesco" varchar, "tipo" varchar, "ativo" boolean, "data_inclusao" datetime, "data_alteracao" datetime, "apartamento_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_moradors_on_apartamento_id" ON "moradors" ("apartamento_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404154015"]]
+  [1m[35m (9.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDescricaoTipos (20180404154038)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "descricao_tipos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "natureza" varchar, "valor_fixo" decimal, "ativo" boolean, "data_inclusao" datetime, "data_alteracao" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404154038"]]
+  [1m[35m (9.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReceitaARecebers (20180404154106)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "receita_a_recebers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" decimal, "data" date, "natureza" varchar, "ativo" boolean, "data_inclusao" datetime, "data_alteracao" datetime, "apartamento_id" integer, "descricao_tipo_id" integer, "morador_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_receita_a_recebers_on_apartamento_id" ON "receita_a_recebers" ("apartamento_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_receita_a_recebers_on_apartamento_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_receita_a_recebers_on_apartamento_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_receita_a_recebers_on_descricao_tipo_id" ON "receita_a_recebers" ("descricao_tipo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_receita_a_recebers_on_descricao_tipo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_receita_a_recebers_on_descricao_tipo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_receita_a_recebers_on_apartamento_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_receita_a_recebers_on_apartamento_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_receita_a_recebers_on_morador_id" ON "receita_a_recebers" ("morador_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404154106"]]
+  [1m[35m (9.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReceitaRecebidas (20180404154111)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "receita_recebidas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" decimal, "data" date, "ativo" boolean, "data_inclusao" datetime, "data_alteracao" datetime, "receita_a_receber_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_receita_recebidas_on_receita_a_receber_id" ON "receita_recebidas" ("receita_a_receber_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404154111"]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDespesas (20180404154114)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "despesas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "data" date, "valor" decimal, "natureza" varchar, "ativo" boolean, "data_inclusao" datetime, "data_alteracao" datetime, "descricao_tipo_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_despesas_on_descricao_tipo_id" ON "despesas" ("descricao_tipo_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180404154114"]]
+  [1m[35m (9.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPasswordDigestToUsuario (20180410222109)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "usuarios" ADD "password_digest" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180410222109"]]
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddIndexToUsuariosLogin (20180410224004)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180410224004"]]
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180411002149)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "login" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180411002149"]]
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPasswordDigestToUsers (20180411002347)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180411002347"]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddIndexToUsersLogin (20180411002553)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180411002553"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNomeToUsers (20180411231436)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "condominios" ADD "nome" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180411231436"]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-19 01:00:34.160536"], ["updated_at", "2018-04-19 01:00:34.160536"]]
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_apartamentos_on_condominio_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_apartamentos_on_condominio_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_despesas_on_descricao_tipo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_despesas_on_descricao_tipo_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_funcionarios_on_apartamento_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_funcionarios_on_apartamento_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_moradors_on_apartamento_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_moradors_on_apartamento_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_receita_a_recebers_on_morador_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_receita_a_recebers_on_morador_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_receita_a_recebers_on_descricao_tipo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_receita_a_recebers_on_descricao_tipo_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_receita_a_recebers_on_apartamento_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_receita_a_recebers_on_apartamento_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_receita_recebidas_on_receita_a_receber_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_receita_recebidas_on_receita_a_receber_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_usuarios_on_condominio_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_usuarios_on_condominio_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_veiculos_on_apartamento_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_veiculos_on_apartamento_id' AND type='index'
+[0m
+Started GET "/" for 10.240.2.147 at 2018-04-19 01:00:53 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (23.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 1662ms (Views: 1641.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/sign_in" for 10.240.2.147 at 2018-04-19 01:00:59 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bk2z7xgrTDaKVBt4l7WcDjsTD0VWySArMd3CTplDA8nxTbAqDsYybmt/uRYnr91hAjXRURVpY9ZUQS5v2npkRA==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 124ms (Views: 118.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/sign_in" for 10.240.0.116 at 2018-04-19 01:01:03 +0000
+Cannot render console from 10.240.0.116! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ueEgdMv7nckuXTJwqLdNuBR1PNFzx41bxzicDMxnOm9O4SOx3Rbjkc92kB4YrQzXLVPixTBnzqaipHAtj15d4g==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 235ms (Views: 231.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/sign_in" for 10.240.0.207 at 2018-04-19 01:01:11 +0000
+Cannot render console from 10.240.0.207! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A9ZVhoD9xDdxNhl92sBBqqXlFryuBNIlFrsquA5FxLb01lZDlhC6b5AduxNq2gDFnMPIqO2kkdhzJ8aZTXyjOw==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 206ms (Views: 204.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 10.240.0.42 at 2018-04-19 01:01:32 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 88ms (Views: 85.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sign_in" for 10.240.0.42 at 2018-04-19 01:01:36 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9H9VOkucupKSrTpjDA/2IlpqFReqMDCEVywPbQQkOGQ0f6R/8MMsqthFoc8Kn63sE92QB0Igz90wFwc9yn3bA==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 83.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sign_in" for 10.240.0.68 at 2018-04-19 01:01:41 +0000
+Cannot render console from 10.240.0.68! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sT9R24FxUDekGe+xokGcQBL4iPMgfA7QosEWMo6yHXpGP1Iel5wub0UyTd8SW90vK95W52PcTS3HXfoTzYt69w==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 196ms (Views: 193.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sign_in" for 10.240.1.21 at 2018-04-19 01:01:45 +0000
+Cannot render console from 10.240.1.21! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YGGZ2t3MazAjm1qPqgl8/7J+Z5wXiRT94rGu2WbcXYWXYZofyyEVaMKw+OEaEz2Qi1i5iFQpVwCHLUL4JeU6CA==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 93.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 10.240.1.136 at 2018-04-19 01:01:56 +0000
+Cannot render console from 10.240.1.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 74.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 10.240.0.42 at 2018-04-19 01:02:09 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 191ms (Views: 188.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sign_in" for 10.240.0.42 at 2018-04-19 01:02:15 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7V80V3wuZpTDHqXstV9TFnYEPwMZq9di7NIe6sszsxoaXzeSasMYzCI1B4IFRRJ5TyLhF1oLlJ+JTvLLiArUlw==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 233ms (Views: 229.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 10.240.2.147 at 2018-04-19 01:02:18 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 92ms (Views: 90.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/despesas" for 10.240.0.42 at 2018-04-19 01:06:41 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DespesasController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://condominio-tetchan96.c9users.io:8080/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 10.240.0.42 at 2018-04-19 01:06:43 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 149ms (Views: 147.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sign_in" for 10.240.0.42 at 2018-04-19 01:07:17 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2WuD/Pgk2nhyPx3l2ewXQ0Y0bEjCE1Wgx24pAuNOndlJ7lJMOlUMfoRzJeG4nLiVPoeXBfhJf7wgixD58eEeyg==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 79ms (Views: 77.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 10.240.1.136 at 2018-04-19 01:07:47 +0000
+Cannot render console from 10.240.1.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (20.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1562ms (Views: 1540.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/sign_in" for 10.240.0.231 at 2018-04-19 01:07:53 +0000
+Cannot render console from 10.240.0.231! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wgFMT3iOUxfh9EKFH/9/WA6yGYdYAQfXFWvZAmKIqg4RipOst4yXS0CXNrX5IFyGYh+NOz7q6wEAEEctZ5Aplw==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 112ms (Views: 109.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/sign_in" for 10.240.1.78 at 2018-04-19 01:08:44 +0000
+Cannot render console from 10.240.1.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 163ms (Views: 161.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 10.240.1.21 at 2018-04-19 01:08:48 +0000
+Cannot render console from 10.240.1.21! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 72.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 10.240.1.136 at 2018-04-19 01:08:53 +0000
+Cannot render console from 10.240.1.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.7ms)
+  Rendered users/new.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 140ms (Views: 127.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 10.240.0.118 at 2018-04-19 01:09:00 +0000
+Cannot render console from 10.240.0.118! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4ugz8ZbIhRE3QrEdOAXiM0/JhP7cM/oogSPD95qBtcUxY+wSWcpBTZYhxS3e2sHtI2QQQrrYFv6UWF3Yn5k2XA==", "user"=>{"name"=>"admin", "login"=>"admin", "password"=>"[FILTERED]", "password_field"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameter: password_field
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "login", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "admin"], ["login", "admin"], ["created_at", "2018-04-19 01:09:00.990581"], ["updated_at", "2018-04-19 01:09:00.990581"], ["password_digest", "$2a$10$D3EAG7tUZSBXhM0v2VFxXu.AYLOQ2bh11Dc./oSXi0gi7C/zv6AJW"]]
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/users/1
+Completed 302 Found in 109ms (ActiveRecord: 13.7ms)
+
+
+Started GET "/users/1" for 10.240.1.78 at 2018-04-19 01:09:01 +0000
+Cannot render console from 10.240.1.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 74.1ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/sign_out" for 10.240.0.118 at 2018-04-19 01:09:13 +0000
+Cannot render console from 10.240.0.118! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4kU78DlyzSicrRi1kcIWrBZ0lTGybWAll0t39/vwddwxzuQT9nAJdD3ObIV3HTVyetkBjdSGjPOCMOnY/uj2RQ=="}
+Redirected to http://condominio-tetchan96.c9users.io:8080/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.240.1.78 at 2018-04-19 01:09:13 +0000
+Cannot render console from 10.240.1.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 72ms (Views: 68.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sign_in" for 10.240.1.21 at 2018-04-19 01:09:17 +0000
+Cannot render console from 10.240.1.21! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"maZcLv+F3CYU/647VNtZXIjVBTO4liVx6p9PqcZj/l9KLYPNMIcYerWc2guyBHqC5HiRj959yaf/5NGGw3t9xg==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  [1m[36mCondominio Load (0.3ms)[0m  [1m[34mSELECT "condominios".* FROM "condominios"[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/condominios/new
+Completed 302 Found in 76ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/condominios/new" for 10.240.1.78 at 2018-04-19 01:09:17 +0000
+Cannot render console from 10.240.1.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CondominiosController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering condominios/new.html.erb within layouts/application
+  Rendered condominios/_form.html.erb (4.5ms)
+  Rendered condominios/new.html.erb within layouts/application (6.0ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 89ms (Views: 81.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/condominios" for 10.240.2.147 at 2018-04-19 01:09:31 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CondominiosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SR7LEgF5RJpbkNhoJg6pHhHfufHyGhmYjvNf4ehfKVOalRTxznuAxvrzrFjA0YrAfXItTZTx9U6biMHO7Ueqyg==", "condominio"=>{"nome"=>"Edificio", "saldo"=>"1600", "fundo_reserva"=>"1200"}, "commit"=>"Create Condominio"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "condominios" ("saldo", "fundo_reserva", "created_at", "updated_at", "nome") VALUES (?, ?, ?, ?, ?)[0m  [["saldo", 1600.0], ["fundo_reserva", 1200.0], ["created_at", "2018-04-19 01:09:31.158600"], ["updated_at", "2018-04-19 01:09:31.158600"], ["nome", "Edificio"]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/condominios/1
+Completed 302 Found in 16ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/condominios/1" for 10.240.1.21 at 2018-04-19 01:09:31 +0000
+Cannot render console from 10.240.1.21! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CondominiosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Redirected to http://condominio-tetchan96.c9users.io:8080/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 10.240.0.68 at 2018-04-19 01:09:31 +0000
+Cannot render console from 10.240.0.68! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (9.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 75.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sign_in" for 10.240.0.231 at 2018-04-19 01:09:35 +0000
+Cannot render console from 10.240.0.231! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dD1Vp5kTWcPrDxW9uoB1CFpQeEsNU/4k/ahzurIHIe+ntopEVhGdn0psYY1cX1bWNv3s92u4EvLo0+2Vtx+idg==", "session"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."login" = ? LIMIT ?[0m  [["login", "admin"], ["LIMIT", 1]]
+  [1m[36mCondominio Load (0.3ms)[0m  [1m[34mSELECT "condominios".* FROM "condominios"[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/condominios/1
+Completed 302 Found in 76ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/condominios/1" for 10.240.2.147 at 2018-04-19 01:09:35 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CondominiosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCondominio Load (0.3ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCondominio Load (0.1ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering condominios/show.html.erb within layouts/application
+  [1m[36mApartamento Load (0.3ms)[0m  [1m[34mSELECT "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."condominio_id" = ? AND "apartamentos"."ativo" = ?[0m  [["condominio_id", 1], ["ativo", "t"]]
+  Rendered apartamentos/_list.html.erb (1.6ms)
+  Rendered condominios/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 93ms (Views: 73.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/apartamentos/new" for 10.240.2.147 at 2018-04-19 01:09:47 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApartamentosController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCondominio Load (0.1ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering apartamentos/new.html.erb within layouts/application
+  [1m[36mCondominio Load (0.3ms)[0m  [1m[34mSELECT "condominios".* FROM "condominios"[0m
+  Rendered apartamentos/_form.html.erb (13.5ms)
+  Rendered apartamentos/new.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 161ms (Views: 145.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/apartamentos" for 10.240.2.147 at 2018-04-19 01:09:52 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApartamentosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6n2Xlwfoob5vcAPEUzeChx8R0+x+S94XexP7SqQ7pLSRIaBnDkt9HiYjUS7pX0KTvrqS6qoDdWOHncyOYZyYTA==", "apartamento"=>{"unidade"=>"101", "ativo"=>"0", "data_inclusao(1i)"=>"2018", "data_inclusao(2i)"=>"4", "data_inclusao(3i)"=>"19", "data_alteracao(1i)"=>"2018", "data_alteracao(2i)"=>"4", "data_alteracao(3i)"=>"19", "condominio_id"=>"1"}, "commit"=>"Create Apartamento"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: ativo, data_inclusao(1i), data_inclusao(2i), data_inclusao(3i), data_alteracao(1i), data_alteracao(2i), data_alteracao(3i)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCondominio Load (0.1ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "apartamentos" ("unidade", "ativo", "data_inclusao", "condominio_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["unidade", "101"], ["ativo", "t"], ["data_inclusao", "2018-04-19 01:09:52.545379"], ["condominio_id", 1], ["created_at", "2018-04-19 01:09:52.550973"], ["updated_at", "2018-04-19 01:09:52.550973"]]
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/apartamentos/1
+Completed 302 Found in 24ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/apartamentos/1" for 10.240.0.171 at 2018-04-19 01:09:52 +0000
+Cannot render console from 10.240.0.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApartamentosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mApartamento Load (0.3ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering apartamentos/show.html.erb within layouts/application
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMorador Load (0.3ms)[0m  [1m[34mSELECT "moradors".* FROM "moradors" WHERE "moradors"."apartamento_id" = ? AND "moradors"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  Rendered moradors/_list.html.erb (1.6ms)
+  [1m[36mVeiculo Load (0.2ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos" WHERE "veiculos"."apartamento_id" = ? AND "veiculos"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  Rendered veiculos/_list.html.erb (1.4ms)
+  [1m[36mFuncionario Load (0.2ms)[0m  [1m[34mSELECT "funcionarios".* FROM "funcionarios" WHERE "funcionarios"."apartamento_id" = ? AND "funcionarios"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  Rendered funcionarios/_list.html.erb (1.3ms)
+  Rendered apartamentos/show.html.erb within layouts/application (11.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 74.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/moradors/new" for 10.240.0.42 at 2018-04-19 01:09:57 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoradorsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering moradors/new.html.erb within layouts/application
+  [1m[36mApartamento Load (0.3ms)[0m  [1m[34mSELECT "apartamentos".* FROM "apartamentos"[0m
+  Rendered moradors/_form.html.erb (17.3ms)
+  Rendered moradors/new.html.erb within layouts/application (23.4ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 127ms (Views: 111.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/moradors" for 10.240.2.147 at 2018-04-19 01:10:07 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoradorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZpJXuTYmUnWSCvJF6S+ZOBmDpmIBKuxCNUOmHvcZX5GDv0BLzkWrolM006vZrdjVE4+4WPkG1znX3gaRMQ/NIw==", "morador"=>{"nome"=>"Morador", "rg"=>"", "cpf"=>"", "tel_residencial"=>"", "tel_celular"=>"", "tel_comercial"=>"", "ramal"=>"", "email"=>"", "parentesco"=>"", "tipo"=>"1", "ativo"=>"0", "data_inclusao(1i)"=>"2018", "data_inclusao(2i)"=>"4", "data_inclusao(3i)"=>"19", "data_inclusao(4i)"=>"01", "data_inclusao(5i)"=>"09", "data_alteracao(1i)"=>"2018", "data_alteracao(2i)"=>"4", "data_alteracao(3i)"=>"19", "data_alteracao(4i)"=>"01", "data_alteracao(5i)"=>"09", "apartamento_id"=>"1"}, "commit"=>"Salvar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: ativo, data_inclusao(1i), data_inclusao(2i), data_inclusao(3i), data_inclusao(4i), data_inclusao(5i), data_alteracao(1i), data_alteracao(2i), data_alteracao(3i), data_alteracao(4i), data_alteracao(5i)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mApartamento Load (0.1ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "moradors" ("nome", "rg", "cpf", "tel_residencial", "tel_celular", "tel_comercial", "ramal", "email", "parentesco", "tipo", "ativo", "data_inclusao", "apartamento_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nome", "Morador"], ["rg", ""], ["cpf", ""], ["tel_residencial", ""], ["tel_celular", ""], ["tel_comercial", ""], ["ramal", ""], ["email", ""], ["parentesco", ""], ["tipo", "1"], ["ativo", "t"], ["data_inclusao", "2018-04-19 01:10:07.420771"], ["apartamento_id", 1], ["created_at", "2018-04-19 01:10:07.423680"], ["updated_at", "2018-04-19 01:10:07.423680"]]
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/moradors/1
+Completed 302 Found in 17ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/moradors/1" for 10.240.2.147 at 2018-04-19 01:10:07 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoradorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMorador Load (0.4ms)[0m  [1m[34mSELECT  "moradors".* FROM "moradors" WHERE "moradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering moradors/show.html.erb within layouts/application
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered moradors/show.html.erb within layouts/application (3.4ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 89ms (Views: 84.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/apartamentos/1" for 10.240.0.42 at 2018-04-19 01:10:11 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApartamentosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering apartamentos/show.html.erb within layouts/application
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMorador Load (0.3ms)[0m  [1m[34mSELECT "moradors".* FROM "moradors" WHERE "moradors"."apartamento_id" = ? AND "moradors"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  [1m[36mApartamento Load (0.1ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered moradors/_list.html.erb (3.7ms)
+  [1m[36mVeiculo Load (0.3ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos" WHERE "veiculos"."apartamento_id" = ? AND "veiculos"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  Rendered veiculos/_list.html.erb (1.5ms)
+  [1m[36mFuncionario Load (0.2ms)[0m  [1m[34mSELECT "funcionarios".* FROM "funcionarios" WHERE "funcionarios"."apartamento_id" = ? AND "funcionarios"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  Rendered funcionarios/_list.html.erb (1.4ms)
+  Rendered apartamentos/show.html.erb within layouts/application (12.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 123ms (Views: 118.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/veiculos/new" for 10.240.0.42 at 2018-04-19 01:10:15 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by VeiculosController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering veiculos/new.html.erb within layouts/application
+  [1m[36mApartamento Load (0.3ms)[0m  [1m[34mSELECT "apartamentos".* FROM "apartamentos"[0m
+  Rendered veiculos/_form.html.erb (8.8ms)
+  Rendered veiculos/new.html.erb within layouts/application (11.7ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 209ms (Views: 191.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/veiculos" for 10.240.1.60 at 2018-04-19 01:10:25 +0000
+Cannot render console from 10.240.1.60! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by VeiculosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B1Z+bNemH0Bnck4QT1vvJOnjzx3UrFaW7F8jha6RAU8yzX+EvismCzdCMYE46gAizlhZv7FxCWHNZPXZ7mzQgA==", "veiculo"=>{"marca"=>"Marca", "modelo"=>"modelo", "cor"=>"cor", "placa"=>"placa", "ativo"=>"0", "data_inclusao(1i)"=>"2018", "data_inclusao(2i)"=>"4", "data_inclusao(3i)"=>"19", "data_alteracao(1i)"=>"2018", "data_alteracao(2i)"=>"4", "data_alteracao(3i)"=>"19", "apartamento_id"=>"1"}, "commit"=>"Create Veiculo"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: ativo, data_inclusao(1i), data_inclusao(2i), data_inclusao(3i), data_alteracao(1i), data_alteracao(2i), data_alteracao(3i)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mApartamento Load (0.1ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "veiculos" ("marca", "modelo", "cor", "placa", "ativo", "data_inclusao", "apartamento_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["marca", "Marca"], ["modelo", "modelo"], ["cor", "cor"], ["placa", "placa"], ["ativo", "t"], ["data_inclusao", "2018-04-19 01:10:25.410297"], ["apartamento_id", 1], ["created_at", "2018-04-19 01:10:25.413025"], ["updated_at", "2018-04-19 01:10:25.413025"]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/veiculos/1
+Completed 302 Found in 20ms (ActiveRecord: 11.4ms)
+
+
+Started GET "/veiculos/1" for 10.240.0.42 at 2018-04-19 01:10:25 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by VeiculosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVeiculo Load (0.3ms)[0m  [1m[34mSELECT  "veiculos".* FROM "veiculos" WHERE "veiculos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering veiculos/show.html.erb within layouts/application
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered veiculos/show.html.erb within layouts/application (3.0ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 76.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/apartamentos/1" for 10.240.1.21 at 2018-04-19 01:10:27 +0000
+Cannot render console from 10.240.1.21! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApartamentosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering apartamentos/show.html.erb within layouts/application
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMorador Load (0.3ms)[0m  [1m[34mSELECT "moradors".* FROM "moradors" WHERE "moradors"."apartamento_id" = ? AND "moradors"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered moradors/_list.html.erb (3.1ms)
+  [1m[36mVeiculo Load (0.2ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos" WHERE "veiculos"."apartamento_id" = ? AND "veiculos"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered veiculos/_list.html.erb (2.7ms)
+  [1m[36mFuncionario Load (0.2ms)[0m  [1m[34mSELECT "funcionarios".* FROM "funcionarios" WHERE "funcionarios"."apartamento_id" = ? AND "funcionarios"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  Rendered funcionarios/_list.html.erb (1.3ms)
+  Rendered apartamentos/show.html.erb within layouts/application (12.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 83ms (Views: 78.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/funcionarios/new" for 10.240.1.21 at 2018-04-19 01:10:33 +0000
+Cannot render console from 10.240.1.21! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FuncionariosController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering funcionarios/new.html.erb within layouts/application
+  [1m[36mApartamento Load (0.3ms)[0m  [1m[34mSELECT "apartamentos".* FROM "apartamentos"[0m
+  Rendered funcionarios/_form.html.erb (9.8ms)
+  Rendered funcionarios/new.html.erb within layouts/application (15.8ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 144ms (Views: 131.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/funcionarios" for 10.240.1.21 at 2018-04-19 01:10:46 +0000
+Cannot render console from 10.240.1.21! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FuncionariosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FzIoQ+6hK2ivNvozaVffSF2ZLw5I2rcXDLEQtko+VkzXeN1NDbXAQAFMdz1kXDhHqRQZ9a3NOWxbawvhxl0q/g==", "funcionario"=>{"nome"=>"Func", "tel"=>"321", "dias_autorizados"=>"12", "ativo"=>"0", "data_inclusao(1i)"=>"2018", "data_inclusao(2i)"=>"4", "data_inclusao(3i)"=>"19", "data_inclusao(4i)"=>"01", "data_inclusao(5i)"=>"10", "data_alteracao(1i)"=>"2018", "data_alteracao(2i)"=>"4", "data_alteracao(3i)"=>"19", "data_alteracao(4i)"=>"01", "data_alteracao(5i)"=>"10", "apartamento_id"=>"1"}, "commit"=>"Create Funcionario"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: ativo, data_inclusao(1i), data_inclusao(2i), data_inclusao(3i), data_inclusao(4i), data_inclusao(5i), data_alteracao(1i), data_alteracao(2i), data_alteracao(3i), data_alteracao(4i), data_alteracao(5i)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mApartamento Load (0.1ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "funcionarios" ("nome", "tel", "dias_autorizados", "ativo", "data_inclusao", "apartamento_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nome", "Func"], ["tel", "321"], ["dias_autorizados", "12"], ["ativo", "t"], ["data_inclusao", "2018-04-19 01:10:46.235700"], ["apartamento_id", 1], ["created_at", "2018-04-19 01:10:46.238547"], ["updated_at", "2018-04-19 01:10:46.238547"]]
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/funcionarios/1
+Completed 302 Found in 22ms (ActiveRecord: 13.7ms)
+
+
+Started GET "/funcionarios/1" for 10.240.0.171 at 2018-04-19 01:10:46 +0000
+Cannot render console from 10.240.0.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FuncionariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFuncionario Load (0.3ms)[0m  [1m[34mSELECT  "funcionarios".* FROM "funcionarios" WHERE "funcionarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering funcionarios/show.html.erb within layouts/application
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered funcionarios/show.html.erb within layouts/application (3.1ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 74ms (Views: 68.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/apartamentos/1" for 10.240.1.78 at 2018-04-19 01:10:48 +0000
+Cannot render console from 10.240.1.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApartamentosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering apartamentos/show.html.erb within layouts/application
+  [1m[36mCondominio Load (0.1ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMorador Load (0.3ms)[0m  [1m[34mSELECT "moradors".* FROM "moradors" WHERE "moradors"."apartamento_id" = ? AND "moradors"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered moradors/_list.html.erb (3.2ms)
+  [1m[36mVeiculo Load (0.2ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos" WHERE "veiculos"."apartamento_id" = ? AND "veiculos"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered veiculos/_list.html.erb (2.8ms)
+  [1m[36mFuncionario Load (0.2ms)[0m  [1m[34mSELECT "funcionarios".* FROM "funcionarios" WHERE "funcionarios"."apartamento_id" = ? AND "funcionarios"."ativo" = ?[0m  [["apartamento_id", 1], ["ativo", "t"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered funcionarios/_list.html.erb (2.9ms)
+  Rendered apartamentos/show.html.erb within layouts/application (14.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 216ms (Views: 211.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/receita_a_recebers" for 10.240.1.78 at 2018-04-19 01:11:01 +0000
+Cannot render console from 10.240.1.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ReceitaARecebersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering receita_a_recebers/index.html.erb within layouts/application
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT "receita_a_recebers".* FROM "receita_a_recebers"[0m
+  Rendered receita_a_recebers/_list.html.erb (2.8ms)
+  Rendered receita_a_recebers/index.html.erb within layouts/application (4.8ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 246ms (Views: 237.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/descricao_tipos" for 10.240.0.207 at 2018-04-19 01:11:03 +0000
+Cannot render console from 10.240.0.207! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering descricao_tipos/index.html.erb within layouts/application
+  [1m[36mDescricaoTipo Load (0.3ms)[0m  [1m[34mSELECT "descricao_tipos".* FROM "descricao_tipos"[0m
+  Rendered descricao_tipos/_list.html.erb (2.3ms)
+  Rendered descricao_tipos/index.html.erb within layouts/application (4.4ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 235ms (Views: 227.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/descricao_tipos/new" for 10.240.0.42 at 2018-04-19 01:11:06 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering descricao_tipos/new.html.erb within layouts/application
+  Rendered descricao_tipos/_form.html.erb (8.7ms)
+  Rendered descricao_tipos/new.html.erb within layouts/application (10.5ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 92ms (Views: 82.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/descricao_tipos" for 10.240.0.42 at 2018-04-19 01:11:21 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gYliwQVftZJWrlXeRwnX2JGwyYQdpB+vz8bwyyfuAae5/jfaUC5QcxAUsejwAzmnJjS4PVbIy0OmocuHol2VUw==", "descricao_tipo"=>{"nome"=>"Fundo Reserva", "natureza"=>"fundo_reserva", "valor_fixo"=>"90", "ativo"=>"0", "data_inclusao(1i)"=>"2018", "data_inclusao(2i)"=>"4", "data_inclusao(3i)"=>"19", "data_inclusao(4i)"=>"01", "data_inclusao(5i)"=>"11", "data_alteracao(1i)"=>"2018", "data_alteracao(2i)"=>"4", "data_alteracao(3i)"=>"19", "data_alteracao(4i)"=>"01", "data_alteracao(5i)"=>"11"}, "commit"=>"Create Descricao tipo"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: ativo, data_inclusao(1i), data_inclusao(2i), data_inclusao(3i), data_inclusao(4i), data_inclusao(5i), data_alteracao(1i), data_alteracao(2i), data_alteracao(3i), data_alteracao(4i), data_alteracao(5i)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "descricao_tipos" ("nome", "natureza", "valor_fixo", "ativo", "data_inclusao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["nome", "Fundo Reserva"], ["natureza", "fundo_reserva"], ["valor_fixo", 90.0], ["ativo", "t"], ["data_inclusao", "2018-04-19 01:11:21.589861"], ["created_at", "2018-04-19 01:11:21.590581"], ["updated_at", "2018-04-19 01:11:21.590581"]]
+  [1m[35m (11.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/descricao_tipos/1
+Completed 302 Found in 20ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/descricao_tipos/1" for 10.240.0.42 at 2018-04-19 01:11:21 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDescricaoTipo Load (0.4ms)[0m  [1m[34mSELECT  "descricao_tipos".* FROM "descricao_tipos" WHERE "descricao_tipos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering descricao_tipos/show.html.erb within layouts/application
+  Rendered descricao_tipos/show.html.erb within layouts/application (1.7ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 86.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/descricao_tipos" for 10.240.0.42 at 2018-04-19 01:11:23 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering descricao_tipos/index.html.erb within layouts/application
+  [1m[36mDescricaoTipo Load (0.2ms)[0m  [1m[34mSELECT "descricao_tipos".* FROM "descricao_tipos"[0m
+  Rendered descricao_tipos/_list.html.erb (1.7ms)
+  Rendered descricao_tipos/index.html.erb within layouts/application (3.4ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 69ms (Views: 66.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/descricao_tipos/new" for 10.240.0.42 at 2018-04-19 01:11:26 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering descricao_tipos/new.html.erb within layouts/application
+  Rendered descricao_tipos/_form.html.erb (8.1ms)
+  Rendered descricao_tipos/new.html.erb within layouts/application (9.7ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 171ms (Views: 168.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/descricao_tipos" for 10.240.0.42 at 2018-04-19 01:11:35 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cElvR8odjeWvXbgIIgtUDnx8qbCueXkROc8LTM9CyupIPjpcn2xoBOnnXD6VAbpxy/jYCeUVrf1QqDAASvFeHg==", "descricao_tipo"=>{"nome"=>"Despesa 1", "natureza"=>"despesa_condominio", "valor_fixo"=>"", "ativo"=>"0", "data_inclusao(1i)"=>"2018", "data_inclusao(2i)"=>"4", "data_inclusao(3i)"=>"19", "data_inclusao(4i)"=>"01", "data_inclusao(5i)"=>"11", "data_alteracao(1i)"=>"2018", "data_alteracao(2i)"=>"4", "data_alteracao(3i)"=>"19", "data_alteracao(4i)"=>"01", "data_alteracao(5i)"=>"11"}, "commit"=>"Create Descricao tipo"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: ativo, data_inclusao(1i), data_inclusao(2i), data_inclusao(3i), data_inclusao(4i), data_inclusao(5i), data_alteracao(1i), data_alteracao(2i), data_alteracao(3i), data_alteracao(4i), data_alteracao(5i)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "descricao_tipos" ("nome", "natureza", "ativo", "data_inclusao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nome", "Despesa 1"], ["natureza", "despesa_condominio"], ["ativo", "t"], ["data_inclusao", "2018-04-19 01:11:35.260373"], ["created_at", "2018-04-19 01:11:35.260966"], ["updated_at", "2018-04-19 01:11:35.260966"]]
+  [1m[35m (9.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/descricao_tipos/2
+Completed 302 Found in 85ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/descricao_tipos/2" for 10.240.0.171 at 2018-04-19 01:11:35 +0000
+Cannot render console from 10.240.0.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDescricaoTipo Load (0.2ms)[0m  [1m[34mSELECT  "descricao_tipos".* FROM "descricao_tipos" WHERE "descricao_tipos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering descricao_tipos/show.html.erb within layouts/application
+  Rendered descricao_tipos/show.html.erb within layouts/application (8.7ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 74.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/descricao_tipos" for 10.240.1.78 at 2018-04-19 01:11:37 +0000
+Cannot render console from 10.240.1.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering descricao_tipos/index.html.erb within layouts/application
+  [1m[36mDescricaoTipo Load (0.3ms)[0m  [1m[34mSELECT "descricao_tipos".* FROM "descricao_tipos"[0m
+  Rendered descricao_tipos/_list.html.erb (2.3ms)
+  Rendered descricao_tipos/index.html.erb within layouts/application (4.0ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 75ms (Views: 71.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/receita_a_recebers" for 10.240.0.116 at 2018-04-19 01:11:41 +0000
+Cannot render console from 10.240.0.116! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ReceitaARecebersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering receita_a_recebers/index.html.erb within layouts/application
+  [1m[36mReceitaAReceber Load (0.2ms)[0m  [1m[34mSELECT "receita_a_recebers".* FROM "receita_a_recebers"[0m
+  Rendered receita_a_recebers/_list.html.erb (1.4ms)
+  Rendered receita_a_recebers/index.html.erb within layouts/application (3.2ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 89ms (Views: 86.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/receita_a_recebers/new" for 10.240.0.42 at 2018-04-19 01:11:43 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ReceitaARecebersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering receita_a_recebers/new.html.erb within layouts/application
+  [1m[36mApartamento Load (0.3ms)[0m  [1m[34mSELECT "apartamentos".* FROM "apartamentos"[0m
+  [1m[36mMorador Load (0.2ms)[0m  [1m[34mSELECT "moradors".* FROM "moradors"[0m
+  [1m[36mDescricaoTipo Load (0.2ms)[0m  [1m[34mSELECT "descricao_tipos".* FROM "descricao_tipos"[0m
+  Rendered receita_a_recebers/_form.html.erb (12.4ms)
+  Rendered receita_a_recebers/new.html.erb within layouts/application (14.3ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 138ms (Views: 124.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/descricao_tipos" for 10.240.0.116 at 2018-04-19 01:12:07 +0000
+Cannot render console from 10.240.0.116! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering descricao_tipos/index.html.erb within layouts/application
+  [1m[36mDescricaoTipo Load (0.2ms)[0m  [1m[34mSELECT "descricao_tipos".* FROM "descricao_tipos"[0m
+  Rendered descricao_tipos/_list.html.erb (2.1ms)
+  Rendered descricao_tipos/index.html.erb within layouts/application (3.7ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 88ms (Views: 85.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/descricao_tipos/new" for 10.240.0.42 at 2018-04-19 01:12:10 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DescricaoTiposController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering descricao_tipos/new.html.erb within layouts/application
+  Rendered descricao_tipos/_form.html.erb (7.9ms)
+  Rendered descricao_tipos/new.html.erb within layouts/application (9.7ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 158ms (Views: 155.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receita_a_recebers" for 10.240.2.147 at 2018-04-19 01:12:27 +0000
+Cannot render console from 10.240.2.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ReceitaARecebersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qW40iRp8qoKVshHLhKOVwgD+yjD7dtQuVIZVobBY/d11RTADu6z2bsVvhEE6MCkTGAuxAKJgoJA4eDdU6w4H8A==", "receita_a_receber"=>{"valor"=>"150", "data(1i)"=>"2018", "data(2i)"=>"4", "data(3i)"=>"19", "natureza"=>"taxa_condominio", "ativo"=>"0", "data_inclusao(1i)"=>"2018", "data_inclusao(2i)"=>"4", "data_inclusao(3i)"=>"19", "data_inclusao(4i)"=>"01", "data_inclusao(5i)"=>"11", "data_alteracao(1i)"=>"2018", "data_alteracao(2i)"=>"4", "data_alteracao(3i)"=>"19", "data_alteracao(4i)"=>"01", "data_alteracao(5i)"=>"11", "apartamento_id"=>"1", "morador_id"=>"1", "descricao_tipo_id"=>"1"}, "commit"=>"Create Receita a receber"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: ativo, data_inclusao(1i), data_inclusao(2i), data_inclusao(3i), data_inclusao(4i), data_inclusao(5i), data_alteracao(1i), data_alteracao(2i), data_alteracao(3i), data_alteracao(4i), data_alteracao(5i)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDescricaoTipo Load (0.1ms)[0m  [1m[34mSELECT  "descricao_tipos".* FROM "descricao_tipos" WHERE "descricao_tipos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMorador Load (0.1ms)[0m  [1m[34mSELECT  "moradors".* FROM "moradors" WHERE "moradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "receita_a_recebers" ("valor", "data", "natureza", "ativo", "data_inclusao", "apartamento_id", "descricao_tipo_id", "morador_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["valor", 150.0], ["data", "2018-04-19"], ["natureza", "taxa_condominio"], ["ativo", "t"], ["data_inclusao", "2018-04-19 01:12:27.304980"], ["apartamento_id", 1], ["descricao_tipo_id", 1], ["morador_id", 1], ["created_at", "2018-04-19 01:12:27.313855"], ["updated_at", "2018-04-19 01:12:27.313855"]]
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/receita_a_recebers/1
+Completed 302 Found in 27ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/receita_a_recebers/1" for 10.240.0.118 at 2018-04-19 01:12:27 +0000
+Cannot render console from 10.240.0.118! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ReceitaARecebersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceitaAReceber Load (0.4ms)[0m  [1m[34mSELECT  "receita_a_recebers".* FROM "receita_a_recebers" WHERE "receita_a_recebers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering receita_a_recebers/show.html.erb within layouts/application
+  [1m[36mApartamento Load (0.2ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDescricaoTipo Load (0.2ms)[0m  [1m[34mSELECT  "descricao_tipos".* FROM "descricao_tipos" WHERE "descricao_tipos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMorador Load (0.3ms)[0m  [1m[34mSELECT  "moradors".* FROM "moradors" WHERE "moradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered receita_a_recebers/show.html.erb within layouts/application (5.8ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 86ms (Views: 80.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/receita_a_recebers/1/edit" for 10.240.1.21 at 2018-04-19 01:12:32 +0000
+Cannot render console from 10.240.1.21! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ReceitaARecebersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceitaAReceber Load (0.4ms)[0m  [1m[34mSELECT  "receita_a_recebers".* FROM "receita_a_recebers" WHERE "receita_a_recebers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering receita_a_recebers/edit.html.erb within layouts/application
+  [1m[36mApartamento Load (0.3ms)[0m  [1m[34mSELECT "apartamentos".* FROM "apartamentos"[0m
+  [1m[36mMorador Load (0.3ms)[0m  [1m[34mSELECT "moradors".* FROM "moradors"[0m
+  [1m[36mDescricaoTipo Load (0.3ms)[0m  [1m[34mSELECT "descricao_tipos".* FROM "descricao_tipos"[0m
+  Rendered receita_a_recebers/_form.html.erb (14.2ms)
+  Rendered receita_a_recebers/edit.html.erb within layouts/application (16.3ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 184ms (Views: 175.6ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/receita_a_recebers/1" for 10.240.1.21 at 2018-04-19 01:12:37 +0000
+Cannot render console from 10.240.1.21! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ReceitaARecebersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wi/Fk6wn8mxqI5rU8OnQFaG3DTiPAkwl3k+ykjjrn+zfjfjyMM/loUZmiZpPhAUQ5ZA0I2+zcolg4uwl3vm5rA==", "receita_a_receber"=>{"valor"=>"150.0", "data(1i)"=>"2019", "data(2i)"=>"4", "data(3i)"=>"19", "natureza"=>"taxa_condominio", "ativo"=>"1", "data_inclusao(1i)"=>"2018", "data_inclusao(2i)"=>"4", "data_inclusao(3i)"=>"19", "data_inclusao(4i)"=>"01", "data_inclusao(5i)"=>"12", "data_alteracao(1i)"=>"2018", "data_alteracao(2i)"=>"4", "data_alteracao(3i)"=>"19", "data_alteracao(4i)"=>"01", "data_alteracao(5i)"=>"12", "apartamento_id"=>"1", "morador_id"=>"1", "descricao_tipo_id"=>"1"}, "commit"=>"Update Receita a receber", "id"=>"1"}
+  [1m[36mReceitaAReceber Load (0.2ms)[0m  [1m[34mSELECT  "receita_a_recebers".* FROM "receita_a_recebers" WHERE "receita_a_recebers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: ativo, data_inclusao(1i), data_inclusao(2i), data_inclusao(3i), data_inclusao(4i), data_inclusao(5i), data_alteracao(1i), data_alteracao(2i), data_alteracao(3i), data_alteracao(4i), data_alteracao(5i)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mApartamento Load (0.3ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDescricaoTipo Load (0.1ms)[0m  [1m[34mSELECT  "descricao_tipos".* FROM "descricao_tipos" WHERE "descricao_tipos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMorador Load (0.1ms)[0m  [1m[34mSELECT  "moradors".* FROM "moradors" WHERE "moradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[33mUPDATE "receita_a_recebers" SET "data_alteracao" = ?, "data" = ?, "updated_at" = ? WHERE "receita_a_recebers"."id" = ?[0m  [["data_alteracao", "2018-04-19 01:12:37.691248"], ["data", "2019-04-19"], ["updated_at", "2018-04-19 01:12:37.699852"], ["id", 1]]
+  [1m[35m (45.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://condominio-tetchan96.c9users.io:8080/receita_a_recebers/1
+Completed 302 Found in 64ms (ActiveRecord: 48.6ms)
+
+
+Started GET "/receita_a_recebers/1" for 10.240.0.171 at 2018-04-19 01:12:37 +0000
+Cannot render console from 10.240.0.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ReceitaARecebersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT  "receita_a_recebers".* FROM "receita_a_recebers" WHERE "receita_a_recebers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering receita_a_recebers/show.html.erb within layouts/application
+  [1m[36mApartamento Load (0.3ms)[0m  [1m[34mSELECT  "apartamentos".* FROM "apartamentos" WHERE "apartamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDescricaoTipo Load (0.2ms)[0m  [1m[34mSELECT  "descricao_tipos".* FROM "descricao_tipos" WHERE "descricao_tipos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMorador Load (0.2ms)[0m  [1m[34mSELECT  "moradors".* FROM "moradors" WHERE "moradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered receita_a_recebers/show.html.erb within layouts/application (7.7ms)
+  [1m[36mCondominio Load (0.2ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 115ms (Views: 110.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/balanco" for 10.240.0.42 at 2018-04-19 01:12:43 +0000
+Cannot render console from 10.240.0.42! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BalancoController#index as HTML
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_descricao_receitas_ano at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:23)
+  [1m[36mDescricaoTipo Load (0.4ms)[0m  [1m[34mSELECT DISTINCT "descricao_tipos".* FROM "descricao_tipos" INNER JOIN "receita_a_recebers" ON "receita_a_recebers"."descricao_tipo_id" = "descricao_tipos"."id" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?)[0m  [["data", "2019-01-01"], ["data", "2020-01-01"]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.2ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-01-01"], ["data", "2019-02-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.2ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-02-01"], ["data", "2019-03-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-03-01"], ["data", "2019-04-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-04-01"], ["data", "2019-05-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-05-01"], ["data", "2019-06-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-06-01"], ["data", "2019-07-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (64.7ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-07-01"], ["data", "2019-08-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-08-01"], ["data", "2019-09-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-09-01"], ["data", "2019-10-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-10-01"], ["data", "2019-11-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.2ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-11-01"], ["data", "2019-12-01"], ["descricao_tipo_id", 1]]
+DEPRECATION WARNING: uniq is deprecated and will be removed from Rails 5.1 (use distinct instead) (called from consultar_receitas_por_descricao_data at /home/ubuntu/workspace/gerencia_condominio/app/helpers/balanco_helper.rb:29)
+  [1m[36mReceitaAReceber Load (0.3ms)[0m  [1m[34mSELECT DISTINCT "receita_a_recebers".* FROM "receita_a_recebers" WHERE ("receita_a_recebers"."data" BETWEEN ? AND ?) AND "receita_a_recebers"."descricao_tipo_id" = ?[0m  [["data", "2019-12-01"], ["data", "2020-01-01"], ["descricao_tipo_id", 1]]
+  Rendering balanco/index.html.erb within layouts/application
+  Rendered balanco/_list_saldo_anterior.html.erb (0.5ms)
+  Rendered balanco/_list_receitas.html.erb (0.9ms)
+  Rendered balanco/_list_despesas.html.erb (0.6ms)
+  Rendered balanco/_list_saldo_mes.html.erb (0.4ms)
+  Rendered balanco/_list_saldo_atual.html.erb (0.4ms)
+  Rendered balanco/_list_taxa_extra.html.erb (0.5ms)
+  Rendered balanco/index.html.erb within layouts/application (14.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCondominio Load (0.1ms)[0m  [1m[34mSELECT  "condominios".* FROM "condominios" WHERE "condominios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 184ms (Views: 93.5ms | ActiveRecord: 68.5ms)
+
+
