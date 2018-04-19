@@ -6,9 +6,13 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       sign_in(@user)
       @condominio = Condominio.all[0]
-      set_current_condominio(@condominio)
       #redirect_to @user
-      redirect_to @condominio ? @condominio : new_condominio_path
+      if @condominio.nil?
+        redirect_to new_condominio_path
+      else
+        set_current_condominio(@condominio)
+        redirect_to @condominio 
+      end
     else
       render 'new'
     end

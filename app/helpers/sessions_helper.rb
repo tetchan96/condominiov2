@@ -21,9 +21,7 @@ module SessionsHelper
   end
   
   def set_current_condominio condominio
-    if condominio?
-      redirect_to new_condominio_path
-    else
+    if !condominio.nil?
       session[:condominio_id] = condominio.id
     end
   end
