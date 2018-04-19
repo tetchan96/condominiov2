@@ -21,7 +21,11 @@ module SessionsHelper
   end
   
   def set_current_condominio condominio
-    session[:condominio_id] = condominio.id
+    if condominio?
+      redirect_to new_condominio_path
+    else
+      session[:condominio_id] = condominio.id
+    end
   end
   def current_condominio
     @current_condominio ||= Condominio.find_by(id: session[:condominio_id])

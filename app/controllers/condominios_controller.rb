@@ -33,6 +33,7 @@ class CondominiosController < ApplicationController
       if @condominio.save
         format.html { redirect_to @condominio, notice: 'Condominio was successfully created.' }
         format.json { render :show, status: :created, location: @condominio }
+        sign_out
       else
         format.html { render :new }
         format.json { render json: @condominio.errors, status: :unprocessable_entity }
