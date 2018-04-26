@@ -19,22 +19,16 @@
                 <th scope="col">Out.</th>
                 <th scope="col">Nov.</th>
                 <th scope="col">Dez.</th>
+                <th scope="col">Total</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
+                <% index = 0 %>
+                <% @lista_despesas_total.each do |total| %>
+                    <td><%= @lista_receitas_total[index] - total  %></td>
+                <% index+=1 %>
+                <% end %>
               </tr>
             </tbody>
           </table>

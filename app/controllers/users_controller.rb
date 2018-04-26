@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         redirect_to @user, notice: "Usuário foi criado com sucesso!"
-  #sign_in(@user)
       else 
         render action: :new
       end

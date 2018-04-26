@@ -24,37 +24,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Consumo de água</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>78</td>
-              </tr>
+              <% @list_despesas.each do |value| %>
+                <tr>
+                  <td><%= value[0].nome %></td>
+                  <% value[1].each do |valor| %>
+                    <td><%= valor %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+              
               <tr>
                 <th>Total</th>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>78</td>
+                <% @lista_despesas_total.each do |total| %>
+                    <td><%= total %></td>
+                <% end %>
               </tr>
             </tbody>
           </table>
