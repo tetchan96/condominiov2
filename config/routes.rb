@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :users
   resources :balanco
   
-  
+  get    'relatorio'   => 'balanco#index'
+  post   'relatorio'   => 'balanco#relatorio'
   get    'sign_in'   => 'sessions#new'
   post   'sign_in'   => 'sessions#create'
   delete 'sign_out'  => 'sessions#destroy'

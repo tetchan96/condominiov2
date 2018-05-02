@@ -2,7 +2,7 @@
   <div class="col-sm-4">
     <div class="page-header float-left">
       <div class="page-title">
-        <h1>Balanço</h1>
+        <h1> Adicionar Despesa</h1>
       </div>
     </div>
   </div>
@@ -11,21 +11,48 @@
       <div class="page-title">
         <ol class="breadcrumb text-right">
           <li><a href="#">Dashboard</a></li>
-          <li class="active">Balanço</li>
+          <li><a href="#">Despesa</a></li>
+          <li class="active">Adicionar</li>
         </ol>
       </div>
     </div>
   </div>
 </div>
-
-<%= render 'list_saldo_anterior' %>
-
-<%= render 'list_receitas' %>
-
-<%= render 'list_despesas' %>
-
-<%= render 'list_saldo_mes' %>
-
-<%= render 'list_saldo_atual' %>
-
-<%= render 'list_taxa_extra' %>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Gerar Balanço</strong>
+          </div>
+          <div class="card-body card-block">
+            <%= form_tag(relatorio_path, method: :post)  do |f| %>
+              <div class="col col-md-6">
+                <div class="form-group">
+                  <div class="col col-md-6">
+                    <label class="form-control-label" for="ano">Ano:</label>
+                  </div>
+                  <div class="col col-md-6">
+                    <input type="text" name="ano" class="form-control" placeholder= "Digite o ano..." />
+                    <!--<small class="form-text text-muted">This is a help text</small></div>-->
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col col-md-12">
+                  <div class="row">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                      <i class="fa fa-dot-circle-o"></i> Gerar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->
