@@ -2,7 +2,7 @@ class MoradorsController < ApplicationController
   include MoradorsHelper
   before_action :set_morador, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: []
-  before_action :buscar_apartamentos, only: [:new, :edit]
+  before_action :buscar_apartamentos, only: [:new, :edit, :update, :create]
   # GET /moradors
   # GET /moradors.json
   def index
@@ -32,7 +32,7 @@ class MoradorsController < ApplicationController
     @morador.data_inclusao = DateTime.now
     respond_to do |format|
       if @morador.save
-        format.html { redirect_to @morador, notice: 'Morador was successfully created.' }
+        format.html { redirect_to @morador, notice: 'Morador foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @morador }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class MoradorsController < ApplicationController
     @morador.data_alteracao = DateTime.now
     respond_to do |format|
       if @morador.update(morador_params)
-        format.html { redirect_to @morador, notice: 'Morador was successfully updated.' }
+        format.html { redirect_to @morador, notice: 'Morador foi atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @morador }
       else
         format.html { render :edit }
@@ -64,10 +64,10 @@ class MoradorsController < ApplicationController
     @morador.data_alteracao = DateTime.now
     respond_to do |format|
       if @morador.update(@morador.attributes)
-        format.html { redirect_to @morador.apartamento, notice: 'Morador was successfully destroyed.' }
+        format.html { redirect_to @morador.apartamento, notice: 'Morador foi excluído com sucesso.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to @morador.apartamento, notice: 'Morador wasn\'t successfully destroyed.' }
+        format.html { redirect_to @morador.apartamento, notice: 'Morador não foi excluído com sucesso.' }
         format.json { head :no_content }
       end
     end

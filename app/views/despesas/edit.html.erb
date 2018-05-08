@@ -10,9 +10,9 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Despesa</a></li>
-          <li><a href="#"><% @despesa.id %></a></li>
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Despesas', despesas_path %></li>
+          <li><%= link_to @despesa.id.to_s, @despesa %></li>
           <li class="active">Editar</li>
         </ol>
       </div>

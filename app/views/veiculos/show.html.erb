@@ -10,9 +10,9 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Veículo</a></li>
-          <li class="active">ID</li>
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Apartamento: '+@veiculo.apartamento.unidade, @veiculo.apartamento %> </li>
+          <li>Veículo: <%= @veiculo.placa %></li>
         </ol>
       </div>
     </div>
@@ -25,10 +25,20 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <strong>Veículo: ID</strong>
+            <strong>Veículo: <%= @veiculo.placa %></strong>
           </div>
           <div class="card-body card-block">
-<p id="notice"><%= notice %></p>
+<% if notice %>            
+<p id="notice">
+  <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+    <span class="badge badge-pill badge-success">Sucesso!</span>
+    <%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</p>
+<% end %>
 
 <p>
   <strong>Marca:</strong>
@@ -54,7 +64,7 @@
   <strong>Ativo:</strong>
   <%= @veiculo.ativo %>
 </p>
-
+<!--
 <p>
   <strong>Data inclusao:</strong>
   <%= @veiculo.data_inclusao %>
@@ -64,10 +74,10 @@
   <strong>Data alteracao:</strong>
   <%= @veiculo.data_alteracao %>
 </p>
-
+-->
 <p>
   <strong>Apartamento:</strong>
-  <%= @veiculo.apartamento %>
+  <%= @veiculo.apartamento.unidade %>
 </p>
 </div>
         </div>

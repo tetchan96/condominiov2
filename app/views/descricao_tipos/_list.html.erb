@@ -1,4 +1,4 @@
-            <table id="bootstrap-data-table" class="table table-striped table-bordered">
+            <table id="bootstrap-data-table-descricao" class="table table-striped table-bordered">
               <thead>
                 <tr>
                   <th>Nome</th>
@@ -14,10 +14,10 @@
                     <td><%= descricao_tipo.nome %></td>
                     <td><%= descricao_tipo.natureza %></td>
                     <td><%= descricao_tipo.valor_fixo %></td>
-                    <td><%= descricao_tipo.ativo %></td>
-                    <td><%= link_to 'Exibir', descricao_tipo %></td>
-                    <td><%= link_to 'Editar', edit_descricao_tipo_path(descricao_tipo) %></td>
-                    <td><%= link_to 'Deletar', descricao_tipo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= descricao_tipo.ativo ? 'Ativo' : 'Desativo' %></td>
+                    <td><%= link_to 'Exibir', descricao_tipo, class: 'btn btn-sm btn-primary' %></td>
+                    <td><%= link_to 'Editar', edit_descricao_tipo_path(descricao_tipo), class: 'btn btn-sm btn-success' %></td>
+                    <td><%= link_to 'Deletar', descricao_tipo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
                   </tr>
                 <% end %>
               </tbody>

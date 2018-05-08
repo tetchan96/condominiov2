@@ -1,4 +1,4 @@
-            <table id="bootstrap-data-table" class="table table-striped table-bordered">
+            <table id="bootstrap-data-table-condominio" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Nome</th>
@@ -14,9 +14,9 @@
         <td><%= condominio.nome %></td>
         <td><%= condominio.saldo %></td>
         <td><%= condominio.fundo_reserva %></td>
-        <td><%= link_to 'Show', condominio %></td>
-        <td><%= link_to 'Edit', edit_condominio_path(condominio) %></td>
-        <td><%= link_to 'Destroy', condominio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', condominio, class: 'btn btn-sm btn-primary' %></td>
+        <td><%= link_to 'Editar', edit_condominio_path(condominio), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to 'Excluir', condominio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

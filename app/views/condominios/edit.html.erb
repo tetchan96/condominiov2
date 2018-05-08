@@ -10,9 +10,7 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Condomínio</a></li>
-          <li><a href="#"><% @condominio.id %></a></li>
+          <li><%= link_to 'Condomínio', current_condominio %></li>
           <li class="active">Editar</li>
         </ol>
       </div>
@@ -31,8 +29,7 @@
             <%= render 'form', condominio: @condominio %>
           </div>
         </div>
-        <%= link_to 'Exibir', @condominio, class: "btn btn-outline-primary", role:"button" %>
-        <%= link_to 'Voltar', condominios_path, class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', @condominio, class: "btn btn-outline-primary", role:"button" %>
       </div>
     </div>
   </div><!-- .animated -->

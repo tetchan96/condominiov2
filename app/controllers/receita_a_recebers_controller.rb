@@ -2,9 +2,9 @@ class ReceitaARecebersController < ApplicationController
   include ReceitaARecebersHelper
   before_action :set_receita_a_receber, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: []
-  before_action :buscar_descricao_despesa, only: [:new, :edit]
-  before_action :buscar_apartamentos, only: [:new, :edit]
-  before_action :buscar_morador, only: [:new, :edit]
+  before_action :buscar_descricao_despesa, only: [:new, :edit, :update, :create]
+  before_action :buscar_apartamentos, only: [:new, :edit, :update, :create]
+  before_action :buscar_morador, only: [:new, :edit, :update, :create]
   # GET /receita_a_recebers
   # GET /receita_a_recebers.json
   def index
@@ -34,7 +34,7 @@ class ReceitaARecebersController < ApplicationController
     @receita_a_receber.data_inclusao = DateTime.now
     respond_to do |format|
       if @receita_a_receber.save
-        format.html { redirect_to @receita_a_receber, notice: 'Receita a receber was successfully created.' }
+        format.html { redirect_to @receita_a_receber, notice: 'Receita a receber foi criada com sucesso!' }
         format.json { render :show, status: :created, location: @receita_a_receber }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class ReceitaARecebersController < ApplicationController
     @receita_a_receber.data_alteracao = DateTime.now
     respond_to do |format|
       if @receita_a_receber.update(receita_a_receber_params)
-        format.html { redirect_to @receita_a_receber, notice: 'Receita a receber was successfully updated.' }
+        format.html { redirect_to @receita_a_receber, notice: 'Receita a receber foi atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @receita_a_receber }
       else
         format.html { render :edit }
@@ -66,10 +66,10 @@ class ReceitaARecebersController < ApplicationController
     @receita_a_receber.data_alteracao = DateTime.now
     respond_to do |format|
       if @receita_a_receber.update(@receita_a_receber.attributes)
-        format.html { redirect_to receita_a_recebers_url, notice: 'Receita a receber was successfully destroyed.' }
+        format.html { redirect_to receita_a_recebers_url, notice: 'Receita a receber foi excluída com sucesso.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to receita_a_recebers_url, notice: 'Receita a receber wasn\'t successfully destroyed.' }
+        format.html { redirect_to receita_a_recebers_url, notice: 'Receita a receber não foi excluída com sucesso.' }
         format.json { head :no_content }
       end
     end

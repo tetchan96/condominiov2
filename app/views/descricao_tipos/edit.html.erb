@@ -10,10 +10,11 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Descrição Despesa/Receita</a></li>
-          <li><a href="#"><% @descricao_tipo.id %></a></li>
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Descrição Despesa/Receita', descricao_tipos_path %></li>
+          <li><%= link_to @descricao_tipo.id.to_s, @descricao_tipo %></li>
           <li class="active">Editar</li>
+          
         </ol>
       </div>
     </div>

@@ -31,7 +31,7 @@ class CondominiosController < ApplicationController
 
     respond_to do |format|
       if @condominio.save
-        format.html { redirect_to @condominio, notice: 'Condominio was successfully created.' }
+        format.html { redirect_to @condominio, notice: 'Condominio foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @condominio }
         sign_out
       else
@@ -46,7 +46,7 @@ class CondominiosController < ApplicationController
   def update
     respond_to do |format|
       if @condominio.update(condominio_params)
-        format.html { redirect_to @condominio, notice: 'Condominio was successfully updated.' }
+        format.html { redirect_to @condominio, notice: 'Condomínio foi atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @condominio }
       else
         format.html { render :edit }
@@ -61,10 +61,10 @@ class CondominiosController < ApplicationController
     #@condominio.destroy
     respond_to do |format|
       if @condominio.update(@condominio.attributes)
-        format.html { redirect_to condominios_url, notice: 'Condominio was successfully destroyed.' }
+        format.html { redirect_to condominios_url, notice: 'Condominio foi excluído com sucesso.' }
         format.json { head :no_content }
       else
-       format.html { redirect_to condominios_url, notice: 'Condominio wasn\'t successfully destroyed.' }
+       format.html { redirect_to condominios_url, notice: 'Condominio não foi excluído com sucesso.' }
         format.json { head :no_content }
       end
     end

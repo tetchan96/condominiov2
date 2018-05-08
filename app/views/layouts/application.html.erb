@@ -9,7 +9,7 @@
     <!--template-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Gerenciador de Condominio">
+    <meta name="description" content="Gerenciador de Condomínio">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="apple-touch-icon" href="/apple-icon.png">
@@ -38,7 +38,7 @@
             padding: 5px !important;
         }
     </style>
-    <title>Gerenciador Condominio</title>
+    <title>Gerenciador de Condomínio</title>
     <%= csrf_meta_tags %>
 
     <!--<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>-->
@@ -53,7 +53,7 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-bars"></i>
           </button>
-          <a class="navbar-brand" href="./"><img src="/images/logo.png" alt="Logo"></a>
+          <a class="navbar-brand" href="./"><img src="/images/logo_menu.png" alt="Logo"></a>
           <a class="navbar-brand hidden" href="./"><img src="/images/logo2.png" alt="Logo"></a>
         </div>
 
@@ -61,11 +61,14 @@
           <ul class="nav navbar-nav">
             <% if logged_in? && !current_condominio.nil?%>
             <li>
-                <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                <!--<a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>-->
             </li>
             <h3 class="menu-title"><%= current_condominio.nome %></h3><!-- /.menu-title -->
             <li class="menu-item-has-children active dropdown">
-              <%= link_to 'Condominio', current_condominio %>
+              <%= link_to 'Condomínio', current_condominio %>
+            </li>
+            <li class="menu-item-has-children active dropdown">
+              <%= link_to 'Relatório', relatorio_path %>
             </li>
             <li class="menu-item-has-children active dropdown">
               <%= link_to 'Despesas', despesas_path %>
@@ -84,7 +87,7 @@
               <%= link_to "Configurações", edit_user_path(current_user) %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to "Log out", sign_out_path, method: "delete" %>
+              <%= link_to "Sair", sign_out_path, method: "delete" %>
             </li>
             <!--
             <li class="menu-item-has-children active dropdown">
@@ -98,7 +101,7 @@
             <% else %>
               <h3 class="menu-title">Usuario</h3><!-- /.menu-title -->
               <li class="menu-item-has-children active dropdown">
-                <%= link_to "Log in", root_path %>
+                <%= link_to "Entrar", root_path %>
               </li>
             <% end %>
             
@@ -132,7 +135,7 @@
                         </div>
                         -->
 
-                        <div class="dropdown for-notification">
+                        <!--<div class="dropdown for-notification">
                           <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-bell"></i>
                             <span class="count bg-danger">1</span>
@@ -164,7 +167,7 @@
                                 </span>
                             </a>
                           </div>
-                        </div>
+                        </div>-->
                       <% end %>
                     </div>
                 </div>
@@ -173,15 +176,15 @@
                   <div class="user-area dropdown float-right">
                   <% if logged_in? %>
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="user-avatar rounded-circle" src="/images/admin.jpg" alt="User Avatar">
+                        <!--<img class="user-avatar rounded-circle" src="/images/admin.jpg" alt="User Avatar">-->
+                         <%= current_user.name %>
                     </a>
                     <div class="user-menu dropdown-menu">
-                      <%= link_to "Profile", current_user %>
-                      <%= link_to "Settings", edit_user_path(current_user) %>
-                      <%= link_to "Log out", sign_out_path, method: "delete" %>
+                      <%= link_to "Perfil", edit_user_path(current_user) %>
+                      <%= link_to "Sair", sign_out_path, method: "delete" %>
                     </div>
                   <% else %>
-                    <%= link_to "Log in", root_path %>
+                    <%= link_to "Entrar", root_path %>
                   <% end %>
                 </div>
             </div>

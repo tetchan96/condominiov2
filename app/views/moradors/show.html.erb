@@ -10,9 +10,9 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Morador</a></li>
-          <li class="active">ID</li>
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Apartamento: '+@morador.apartamento.unidade, @morador.apartamento %></li>
+          <li>Morador: <%= @morador.nome %></li>
         </ol>
       </div>
     </div>
@@ -25,9 +25,20 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <strong>Morador: ID</strong>
+            <strong>Morador: <%= @morador.nome %></strong>
           </div>
           <div class="card-body card-block">
+            <% if notice %>            
+            <p id="notice">
+              <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                <span class="badge badge-pill badge-success">Sucesso!</span>
+                <%= notice %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </p>
+            <% end %>
 <p>
   <strong>Nome:</strong>
   <%= @morador.nome %>
@@ -82,7 +93,7 @@
   <strong>Ativo:</strong>
   <%= @morador.ativo %>
 </p>
-
+<!--
 <p>
   <strong>Data inclusao:</strong>
   <%= @morador.data_inclusao %>
@@ -92,11 +103,12 @@
   <strong>Data alteracao:</strong>
   <%= @morador.data_alteracao %>
 </p>
-
+-->
 <p>
   <strong>Apartamento:</strong>
-  <%= @morador.apartamento %>
+  <%= @morador.apartamento.unidade %>
 </p>
+        </div>
         </div>
         </div>
         </div>

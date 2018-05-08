@@ -10,9 +10,8 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Apartamento</a></li>
-          <li class="active">ID</li>
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li>Apartamento: <%= @apartamento.unidade %> </li>
         </ol>
       </div>
     </div>
@@ -25,9 +24,20 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <strong>Apartamento: ID</strong>
+            <strong>Apartamento: <%= @apartamento.unidade %></strong>
           </div>
           <div class="card-body card-block">
+<% if notice %>            
+<p id="notice">
+  <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+    <span class="badge badge-pill badge-success">Sucesso!</span>
+    <%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</p>
+<% end %>  
 <p>
   <strong>Unidade:</strong>
   <%= @apartamento.unidade %>
@@ -37,7 +47,7 @@
   <strong>Ativo:</strong>
   <%= @apartamento.ativo %>
 </p>
-
+<!--
 <p>
   <strong>Data inclusao:</strong>
   <%= @apartamento.data_inclusao %>
@@ -47,9 +57,9 @@
   <strong>Data alteracao:</strong>
   <%= @apartamento.data_alteracao %>
 </p>
-
+-->
 <p>
-  <strong>Condominio:</strong>
+  <strong>Condomínio:</strong>
   <%= @apartamento.condominio.nome %>
 </p>
 </div>
@@ -73,20 +83,20 @@
         </div>  
         <div class="card">
           <div class="card-header">
-            <strong class="card-title">Veiculos</strong>
+            <strong class="card-title">Veículos</strong>
           </div>
           <div class="card-body">
             <%= render 'veiculos/list', veiculos: @veiculos %>
-            <%= link_to 'Adicionar Veiculo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
+            <%= link_to 'Adicionar Veículo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
           </div>
         </div> 
         <div class="card">
           <div class="card-header">
-            <strong class="card-title">Funcionarios</strong>
+            <strong class="card-title">Funcionários</strong>
           </div>
           <div class="card-body">
             <%= render 'funcionarios/list', funcionarios: @funcionarios %>
-            <%= link_to 'Adicionar Veiculo', new_funcionario_path, class: "btn btn-outline-primary", role:"button" %>
+            <%= link_to 'Adicionar Funcionário', new_funcionario_path, class: "btn btn-outline-primary", role:"button" %>
           </div>
         </div> 
         

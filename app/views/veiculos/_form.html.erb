@@ -1,7 +1,7 @@
 <%= form_for(veiculo) do |f| %>
   <% if veiculo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
+      <h2><%= pluralize(veiculo.errors.count, "error") %>:</h2>
 
       <ul>
       <% veiculo.errors.full_messages.each do |message| %>
@@ -116,12 +116,12 @@
 <div class="form-group">
   <div class="col col-md-12">
     <div class="row">
-      <%= f.submit class: "btn btn-primary btn-sm" %>
+      <%= f.submit 'Salvar', class: "btn btn-primary btn-sm" %>
       <!--<button type="submit" class="btn btn-primary btn-sm">
         <i class="fa fa-dot-circle-o"></i> Submit
       </button>-->
       <button type="reset" class="btn btn-danger btn-sm">
-        <i class="fa fa-ban"></i> Reset
+        <i class="fa fa-ban"></i> Limpar
       </button>
     </div>
   </div>

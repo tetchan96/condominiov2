@@ -2,7 +2,7 @@ class FuncionariosController < ApplicationController
   include FuncionariosHelper
   before_action :set_funcionario, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: []
-  before_action :buscar_apartamentos, only: [:new, :edit]
+  before_action :buscar_apartamentos, only: [:new, :edit, :update, :create]
   # GET /funcionarios
   # GET /funcionarios.json
   def index
@@ -33,7 +33,7 @@ class FuncionariosController < ApplicationController
 
     respond_to do |format|
       if @funcionario.save
-        format.html { redirect_to @funcionario, notice: 'Funcionario was successfully created.' }
+        format.html { redirect_to @funcionario, notice: 'Funcionario foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @funcionario }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class FuncionariosController < ApplicationController
     @funcionario.data_alteracao = DateTime.now
     respond_to do |format|
       if @funcionario.update(funcionario_params)
-        format.html { redirect_to @funcionario, notice: 'Funcionario was successfully updated.' }
+        format.html { redirect_to @funcionario, notice: 'Funcionario foi atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @funcionario }
       else
         format.html { render :edit }
@@ -65,10 +65,10 @@ class FuncionariosController < ApplicationController
     @funcionario.data_alteracao = DateTime.now
     respond_to do |format|
       if @funcionario.update(@funcionario.attributes)
-        format.html { redirect_to @funcionario.apartamento, notice: 'Funcionario was successfully destroyed.' }
+        format.html { redirect_to @funcionario.apartamento, notice: 'Funcionario foi excluído com sucesso.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to @funcionario.apartamento, notice: 'Funcionario wasn\'t successfully destroyed.' }
+        format.html { redirect_to @funcionario.apartamento, notice: 'Funcionario não foi excluído com sucesso.' }
         format.json { head :no_content }
       end
     end

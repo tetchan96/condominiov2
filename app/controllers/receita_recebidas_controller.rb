@@ -30,7 +30,7 @@ class ReceitaRecebidasController < ApplicationController
     @receita_recebida.data_inclusao = DateTime.now
     respond_to do |format|
       if @receita_recebida.save
-        format.html { redirect_to @receita_recebida, notice: 'Receita recebida was successfully created.' }
+        format.html { redirect_to @receita_recebida, notice: 'Receita recebida foi criada com sucesso!' }
         format.json { render :show, status: :created, location: @receita_recebida }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ReceitaRecebidasController < ApplicationController
     @receita_recebida.data_alteracao = DateTime.now
     respond_to do |format|
       if @receita_recebida.update(receita_recebida_params)
-        format.html { redirect_to @receita_recebida, notice: 'Receita recebida was successfully updated.' }
+        format.html { redirect_to @receita_recebida, notice: 'Receita recebida foi atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @receita_recebida }
       else
         format.html { render :edit }
@@ -62,10 +62,10 @@ class ReceitaRecebidasController < ApplicationController
     @receita_recebida.data_alteracao = DateTime.now
     respond_to do |format|
       if @receita_recebida.update(@receita_recebida.attributes)
-        format.html { redirect_to receita_recebidas_url, notice: 'Receita recebida was successfully destroyed.' }
+        format.html { redirect_to receita_recebidas_url, notice: 'Receita recebida foi excluída com sucesso.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to receita_recebidas_url, notice: 'Receita recebida wasn\'t successfully destroyed.' }
+        format.html { redirect_to receita_recebidas_url, notice: 'Receita recebida não foi excluída com sucesso.' }
         format.json { head :no_content }
       end
     end

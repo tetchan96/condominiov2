@@ -1,7 +1,7 @@
 <%= form_for(apartamento) do |f| %>
   <% if apartamento.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(apartamento.errors.count, "error") %> prohibited this apartamento from being saved:</h2>
+      <h2><%= pluralize(apartamento.errors.count, "error") %> não permitiu salvar o apartamento.</h2>
 
       <ul>
       <% apartamento.errors.full_messages.each do |message| %>
@@ -62,7 +62,7 @@
 </div>
 
 
-  <div class="col col-md-6">
+  <div class="col col-md-6 hide">
   <div class="form-group">
     <div class="col col-md-6">
       <%= f.label :condominio_id, class: "form-control-label", for: :condominio_id %>
@@ -73,16 +73,16 @@
     </div>
   </div>
 </div>
-
+<br/>
 <div class="form-group">
   <div class="col col-md-12">
     <div class="row">
-      <%= f.submit class: "btn btn-primary btn-sm" %>
+      <%= f.submit 'Salvar', class: "btn btn-primary btn-sm" %>
       <!--<button type="submit" class="btn btn-primary btn-sm">
         <i class="fa fa-dot-circle-o"></i> Submit
       </button>-->
       <button type="reset" class="btn btn-danger btn-sm">
-        <i class="fa fa-ban"></i> Reset
+        <i class="fa fa-ban"></i> Limpar
       </button>
     </div>
   </div>

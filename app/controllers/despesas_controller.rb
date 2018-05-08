@@ -33,7 +33,7 @@ class DespesasController < ApplicationController
 
     respond_to do |format|
       if @despesa.save
-        format.html { redirect_to @despesa, notice: 'Despesa was successfully created.' }
+        format.html { redirect_to @despesa, notice: 'Despesa foi criada com sucesso!' }
         format.json { render :show, status: :created, location: @despesa }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class DespesasController < ApplicationController
     @despesa.data_alteracao = DateTime.now
     respond_to do |format|
       if @despesa.update(despesa_params)
-        format.html { redirect_to @despesa, notice: 'Despesa was successfully updated.' }
+        format.html { redirect_to @despesa, notice: 'Despesa foi atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @despesa }
       else
         format.html { render :edit }
@@ -65,10 +65,10 @@ class DespesasController < ApplicationController
     @despesa.data_alteracao = DateTime.now
     respond_to do |format|
       if @despesa.update(@despesa.attributes)
-        format.html { redirect_to despesas_url, notice: 'Despesa was successfully destroyed.' }
+        format.html { redirect_to despesas_url, notice: 'Despesa foi excluída com sucesso.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to despesas_url, notice: 'Despesa wasn\'t successfully destroyed.' }
+        format.html { redirect_to despesas_url, notice: 'Despesa não foi excluída com sucesso.' }
         format.json { head :no_content }
       end
     end

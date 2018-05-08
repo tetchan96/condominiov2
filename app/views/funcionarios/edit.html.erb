@@ -10,9 +10,9 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Funcionário</a></li>
-          <li><a href="#"><% @funcionario.id %></a></li>
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Apartamento: '+ @funcionario.apartamento.unidade, @funcionario.apartamento  %></li>
+          <li><%= link_to'Funcionário: '+ @funcionario.nome, @funcionario %></li>
           <li class="active">Editar</li>
         </ol>
       </div>

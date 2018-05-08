@@ -1,7 +1,7 @@
 <%= form_for(condominio) do |f| %>
   <% if condominio.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(condominio.errors.count, "error") %> prohibited this condominio from being saved:</h2>
+      <h2><%= pluralize(condominio.errors.count, "error") %> não permitiu salvar o condomínio:</h2>
 
       <ul>
       <% condominio.errors.full_messages.each do |message| %>
@@ -49,12 +49,12 @@
 <div class="form-group">
   <div class="col col-md-12">
     <div class="row">
-      <%= f.submit class: "btn btn-primary btn-sm" %>
+      <%= f.submit 'Salvar', class: "btn btn-primary btn-sm" %>
       <!--<button type="submit" class="btn btn-primary btn-sm">
         <i class="fa fa-dot-circle-o"></i> Submit
       </button>-->
       <button type="reset" class="btn btn-danger btn-sm">
-        <i class="fa fa-ban"></i> Reset
+        <i class="fa fa-ban"></i> Limpar
       </button>
     </div>
   </div>

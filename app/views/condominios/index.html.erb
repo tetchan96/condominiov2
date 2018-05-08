@@ -10,7 +10,6 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
           <li class="active">Condomínio</li>
         </ol>
       </div>
@@ -32,7 +31,7 @@
           </div>
           <div class="card-body">
             <%= render 'list', condominios: @condominios %>            
-            <%= link_to 'Adicionar Condominio', new_condominio_path, class: "btn btn-outline-primary", role:"button" %>
+            <%= link_to 'Adicionar Condomínio', new_condominio_path, class: "btn btn-outline-primary", role:"button" %>
           </div>
         </div>
       </div>

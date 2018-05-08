@@ -10,9 +10,9 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Despesa</a></li>
-          <li class="active">ID</li>
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Despesas', despesas_path %></li>
+          <li>Despesa: <%= @despesa.id %></li>
         </ol>
       </div>
     </div>
@@ -25,10 +25,20 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <strong>Despesa: ID</strong>
+            <strong>Despesa:  <%= @despesa.id %></strong>
           </div>
           <div class="card-body card-block">
-<p id="notice"><%= notice %></p>
+<% if notice %>            
+<p id="notice">
+  <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+    <span class="badge badge-pill badge-success">Sucesso!</span>
+    <%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</p>
+<% end %>
 
 <p>
   <strong>Data:</strong>
@@ -49,7 +59,7 @@
   <strong>Ativo:</strong>
   <%= @despesa.ativo %>
 </p>
-
+<!--
 <p>
   <strong>Data inclusao:</strong>
   <%= @despesa.data_inclusao %>
@@ -59,7 +69,7 @@
   <strong>Data alteracao:</strong>
   <%= @despesa.data_alteracao %>
 </p>
-
+-->
 <p>
   <strong>Descricao tipo:</strong>
   <%= @despesa.descricao_tipo.nome %>

@@ -10,9 +10,10 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Funcionário</a></li>
-          <li class="active">ID</li>
+          
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Apartamento: '+ @funcionario.apartamento.unidade, @funcionario.apartamento  %></li>
+          <li class="active">Funcionário: <%= @funcionario.nome %></li>
         </ol>
       </div>
     </div>
@@ -25,11 +26,20 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <strong>Funcionário: ID</strong>
+            <strong>Funcionário: <%= @funcionario.nome %></strong>
           </div>
           <div class="card-body card-block">
-<p id="notice"><%= notice %></p>
-<p id="notice"><%= notice %></p>
+<% if notice %>            
+<p id="notice">
+  <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+    <span class="badge badge-pill badge-success">Sucesso!</span>
+    <%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</p>
+<% end %>
 
 <p>
   <strong>Nome:</strong>
@@ -37,7 +47,7 @@
 </p>
 
 <p>
-  <strong>Tel:</strong>
+  <strong>Telefone:</strong>
   <%= @funcionario.tel %>
 </p>
 
@@ -50,7 +60,7 @@
   <strong>Ativo:</strong>
   <%= @funcionario.ativo %>
 </p>
-
+<!--
 <p>
   <strong>Data inclusao:</strong>
   <%= @funcionario.data_inclusao %>
@@ -60,10 +70,10 @@
   <strong>Data alteracao:</strong>
   <%= @funcionario.data_alteracao %>
 </p>
-
+-->
 <p>
   <strong>Apartamento:</strong>
-  <%= @funcionario.apartamento %>
+  <%= @funcionario.apartamento.unidade %>
 </p>
 </div>
         </div>

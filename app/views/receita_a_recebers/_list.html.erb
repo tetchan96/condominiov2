@@ -1,4 +1,4 @@
-<table id="bootstrap-data-table" class="table table-striped table-bordered">
+<table id="bootstrap-data-table_receita-a-receber" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Valor</th>
@@ -18,13 +18,13 @@
         <td><%= receita_a_receber.valor %></td>
         <td><%= receita_a_receber.data %></td>
         <td><%= receita_a_receber.natureza %></td>
-        <td><%= receita_a_receber.ativo %></td>
+        <td><%= receita_a_receber.ativo ? 'Ativo' : 'Desativo' %></td>
         <td><%= receita_a_receber.apartamento.unidade %></td>
         <td><%= receita_a_receber.descricao_tipo.nome %></td>
         <td><%= receita_a_receber.morador.nome %></td>
-        <td><%= link_to 'Show', receita_a_receber %></td>
-        <td><%= link_to 'Edit', edit_receita_a_receber_path(receita_a_receber) %></td>
-        <td><%= link_to 'Destroy', receita_a_receber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', receita_a_receber, class: 'btn btn-sm btn-primary' %></td>
+        <td><%= link_to 'Editar', edit_receita_a_receber_path(receita_a_receber), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to 'Excluir', receita_a_receber, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

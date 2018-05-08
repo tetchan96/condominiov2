@@ -37,7 +37,7 @@ class ApartamentosController < ApplicationController
 
     respond_to do |format|
       if @apartamento.save
-        format.html { redirect_to @apartamento, notice: 'Apartamento was successfully created.' }
+        format.html { redirect_to @apartamento, notice: 'Apartamento foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @apartamento }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class ApartamentosController < ApplicationController
     @apartamento.data_alteracao = DateTime.now
     respond_to do |format|
       if @apartamento.update(apartamento_params)
-        format.html { redirect_to @apartamento, notice: 'Apartamento was successfully updated.' }
+        format.html { redirect_to @apartamento, notice: 'Apartamento foi atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @apartamento }
       else
         format.html { render :edit }
@@ -69,10 +69,10 @@ class ApartamentosController < ApplicationController
     @apartamento.data_alteracao = DateTime.now
     respond_to do |format|
       if @apartamento.update(@apartamento.attributes)
-        format.html { redirect_to @apartamento.condominio, notice: 'Apartamento was successfully destroyed.' }
+        format.html { redirect_to @apartamento.condominio, notice: 'Apartamento foi excluído com sucesso.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to @apartamento.condominio, notice: 'Apartamento wasn\'t successfully destroyed.' }
+        format.html { redirect_to @apartamento.condominio, notice: 'Apartamento não foi excluído com sucesso.' }
         format.json { head :no_content }
       end
     end

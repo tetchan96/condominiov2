@@ -31,7 +31,7 @@ class DescricaoTiposController < ApplicationController
 
     respond_to do |format|
       if @descricao_tipo.save
-        format.html { redirect_to @descricao_tipo, notice: 'Descricao tipo was successfully created.' }
+        format.html { redirect_to @descricao_tipo, notice: 'Descricao foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @descricao_tipo }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class DescricaoTiposController < ApplicationController
     @descricao_tipo.data_alteracao = DateTime.now
     respond_to do |format|
       if @descricao_tipo.update(descricao_tipo_params)
-        format.html { redirect_to @descricao_tipo, notice: 'Descricao tipo was successfully updated.' }
+        format.html { redirect_to @descricao_tipo, notice: 'Descrição foi atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @descricao_tipo }
       else
         format.html { render :edit }
@@ -63,10 +63,10 @@ class DescricaoTiposController < ApplicationController
     @descricao_tipo.data_alteracao = DateTime.now
     respond_to do |format|
       if @descricao_tipo.update(@descricao_tipo.attributes)
-        format.html { redirect_to descricao_tipos_url, notice: 'Descricao tipo was successfully destroyed.' }
+        format.html { redirect_to descricao_tipos_url, notice: 'Descrição foi excluído com sucesso.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to descricao_tipos_url, notice: 'Descricao tipo wasn\'t successfully destroyed.' }
+        format.html { redirect_to descricao_tipos_url, notice: 'Descrição não foi excluído com sucesso.' }
         format.json { head :no_content }
       end
     end

@@ -10,9 +10,10 @@
     <div class="page-header float-right">
       <div class="page-title">
         <ol class="breadcrumb text-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Receita a receber</a></li>
-          <li class="active">ID</li>
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Receita a receber', receita_a_recebers_path %> </li>
+          
+          <li class="active"><%= @receita_a_receber.id %></li>
         </ol>
       </div>
     </div>
@@ -29,7 +30,17 @@
           </div>
           <div class="card-body card-block">
 
-<p id="notice"><%= notice %></p>
+<% if notice %>            
+<p id="notice">
+  <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+    <span class="badge badge-pill badge-success">Sucesso!</span>
+    <%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</p>
+<% end %>
 
 
 <p>
@@ -51,7 +62,7 @@
   <strong>Ativo:</strong>
   <%= @receita_a_receber.ativo %>
 </p>
-
+<!--
 <p>
   <strong>Data inclusao:</strong>
   <%= @receita_a_receber.data_inclusao %>
@@ -61,7 +72,7 @@
   <strong>Data alteracao:</strong>
   <%= @receita_a_receber.data_alteracao %>
 </p>
-
+-->
 <p>
   <strong>Apartamento:</strong>
   <%= @receita_a_receber.apartamento.unidade %>

@@ -1,4 +1,4 @@
-<table id="bootstrap-data-table" class="table table-striped table-bordered">
+<table id="bootstrap-data-table-moradores" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Nome</th>
@@ -19,12 +19,12 @@
         <td><%= morador.cpf %></td>
         <td><%= morador.tel_celular %></td>
         <td><%= morador.parentesco %></td>
-        <td><%= morador.tipo %></td>
+        <td><%= morador.tipo ? 'Ativo' : 'Desativo' %></td>
         <td><%= morador.ativo %></td>
         <td><%= morador.apartamento.unidade %></td>
-        <td><%= link_to 'Show', morador %></td>
-        <td><%= link_to 'Edit', edit_morador_path(morador) %></td>
-        <td><%= link_to 'Destroy', morador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', morador, class: 'btn btn-sm btn-primary' %></td>
+        <td><%= link_to 'Editar', edit_morador_path(morador), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to 'Excluir', morador, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

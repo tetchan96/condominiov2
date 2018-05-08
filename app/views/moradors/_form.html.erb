@@ -1,7 +1,7 @@
 <%= form_for(morador) do |f| %>
   <% if morador.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(morador.errors.count, "error") %> prohibited this morador from being saved:</h2>
+      <h2><%= pluralize(morador.errors.count, "error") %>:</h2>
 
       <ul>
       <% morador.errors.full_messages.each do |message| %>
@@ -188,7 +188,7 @@
         <i class="fa fa-dot-circle-o"></i> Submit
       </button>-->
       <button type="reset" class="btn btn-danger btn-sm">
-        <i class="fa fa-ban"></i> Reset
+        <i class="fa fa-ban"></i> Limpar
       </button>
     </div>
   </div>

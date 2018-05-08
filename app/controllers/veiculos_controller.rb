@@ -2,7 +2,7 @@ class VeiculosController < ApplicationController
   include VeiculosHelper
   before_action :set_veiculo, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: []
-  before_action :buscar_apartamentos, only: [:new, :edit]
+  before_action :buscar_apartamentos, only: [:new, :edit, :update, :create]
   # GET /veiculos
   # GET /veiculos.json
   def index
@@ -32,7 +32,7 @@ class VeiculosController < ApplicationController
     @veiculo.data_inclusao = DateTime.now
     respond_to do |format|
       if @veiculo.save
-        format.html { redirect_to @veiculo, notice: 'Veiculo was successfully created.' }
+        format.html { redirect_to @veiculo, notice: 'Veiculo foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @veiculo }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class VeiculosController < ApplicationController
     @veiculo.data_alteracao = DateTime.now
     respond_to do |format|
       if @veiculo.update(veiculo_params)
-        format.html { redirect_to @veiculo, notice: 'Veiculo was successfully updated.' }
+        format.html { redirect_to @veiculo, notice: 'Veiculo foi atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @veiculo }
       else
         format.html { render :edit }
@@ -64,10 +64,10 @@ class VeiculosController < ApplicationController
     @veiculo.data_alteracao = DateTime.now
     respond_to do |format|
       if @veiculo.update(@veiculo.attributes)
-        format.html { redirect_to @veiculo.apartamento, notice: 'Veiculo was successfully destroyed.' }
+        format.html { redirect_to @veiculo.apartamento, notice: 'Veiculo foi excluído com sucesso.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to @veiculo.apartamento, notice: 'Veiculo wasn\'t successfully destroyed.' }
+        format.html { redirect_to @veiculo.apartamento, notice: 'Veiculo não foi excluído com sucesso.' }
         format.json { head :no_content }
       end
     end
