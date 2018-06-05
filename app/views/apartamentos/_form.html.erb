@@ -1,16 +1,18 @@
 <%= form_for(apartamento) do |f| %>
-  <% if apartamento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(apartamento.errors.count, "error") %> não permitiu salvar o apartamento.</h2>
 
-      <ul>
-      <% apartamento.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <% if @apartamento.errors.any? %>
+
+      <% @apartamento.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger" role="alert">
+          <span class="badge badge-pill badge-danger">Erro!</span>
+          <%= msg %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
+  <% end %>
 
 <div class="col col-md-6">
   <div class="form-group">
