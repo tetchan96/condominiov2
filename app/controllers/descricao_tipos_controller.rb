@@ -66,6 +66,7 @@ class DescricaoTiposController < ApplicationController
         format.html { redirect_to descricao_tipos_url, notice: 'Descrição foi excluído com sucesso.' }
         format.json { head :no_content }
       else
+        print @descricao_tipo.errors
         format.html { redirect_to descricao_tipos_url, notice: 'Descrição não foi excluído com sucesso.' }
         format.json { head :no_content }
       end

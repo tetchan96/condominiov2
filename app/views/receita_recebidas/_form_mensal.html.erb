@@ -5,6 +5,7 @@
     <tr>
       <th>Descricao</th>
       <th>Natureza</th>
+      <th>AP.</th>
       <th>Data</th>
       <th>Valor</th>
       <th>Valor a pagar</th>
@@ -21,6 +22,9 @@
           </td>
           <td>
             <%= receita.receita_a_receber.natureza %>
+          </td>
+          <td>
+            <%= receita.receita_a_receber.apartamento.unidade %>
           </td>
           <td>
             <%= receita.data %>
