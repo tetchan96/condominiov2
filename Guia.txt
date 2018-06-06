@@ -79,3 +79,5 @@ https://www.devmedia.com.br/ruby-on-rails-implementando-autenticacao-de-usuario/
 
 
 http://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html
+
+http://guides.rubyonrails.org/testing.html
