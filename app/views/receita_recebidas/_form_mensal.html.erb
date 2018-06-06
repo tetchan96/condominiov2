@@ -1,0 +1,51 @@
+<%= form_tag(receita_mensal_path, method: :post)  do |f| %>
+
+<table id="bootstrap-data-table-despesas" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Descricao</th>
+      <th>Natureza</th>
+      <th>Data</th>
+      <th>Valor</th>
+      <th>Valor a pagar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% receitas.each do |receita| %>
+      <%= fields_for 'receitas[]', receita do |r| %>
+        <tr>
+          <td>
+            <%= receita.receita_a_receber.descricao_tipo.nome %>
+            <%= r.hidden_field :receita_a_receber_id, class:"form-control", value: receita.receita_a_receber.id %>
+          </td>
+          <td>
+            <%= receita.receita_a_receber.natureza %>
+          </td>
+          <td>
+            <%= receita.data %>
+            <%= r.hidden_field :data, class:"form-control", value: receita.data %>
+          </td>
+          <td>
+            <%= receita.receita_a_receber.valor %>
+          </td>
+          <td><%= r.text_field :valor, class:"form-control", value: receita.valor %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<div class="form-group">
+  <div class="col col-md-12">
+    <div class="row">
+      <%= submit_tag 'Salvar', class: "btn btn-primary btn-sm" %>
+      <!--<button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-dot-circle-o"></i> Submit
+      </button>-->
+      <button type="reset" class="btn btn-danger btn-sm">
+        <i class="fa fa-ban"></i> Limpar
+      </button>
+    </div>
+  </div>
+</div>
+<% end %>

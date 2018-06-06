@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   
   get    'relatorio'   => 'balanco#index'
   post   'relatorio'   => 'balanco#relatorio'
+  
+  get    'despesa_mensal'   => 'despesas#mensal'
+  post   'despesa_mensal'   => 'despesas#mult_create'
+  
+  get    'receita_mensal'   => 'receita_recebidas#mensal'
+  post   'receita_mensal'   => 'receita_recebidas#mult_create'
+  
   get    'sign_in'   => 'sessions#new'
   post   'sign_in'   => 'sessions#create'
   delete 'sign_out'  => 'sessions#destroy'

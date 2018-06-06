@@ -1,0 +1,81 @@
+echo "# sistemacondominio" >> README.md
+
+https://github.com/tetchan96/sistemacondominio
+https://github.com/tetchan96/condominiov2
+git init
+git add *
+git commit -m "first commit"
+git remote add origin https://github.com/tetchan96/condominiov2.git
+git push -u origin master
+
+thiagoalvesdacruz
+
+
+git remote add origin https://github.com/tetchan96/sistemacondominio.git
+git push -u origin master
+
+git pull
+
+gem install rails -v 5.0.1
+ruby -v
+sqlite3 --version
+rails --version
+
+rails _5.0.6_ new gerencia_condominio
+cd gerencia_condominio
+
+rails generate scaffold condominio saldo:decimal fundo_reserva:decimal
+
+rails generate scaffold usuario nome:string login:string senha:string ativo:boolean data_inclusao:datetime data_alteracao:datetime condominio:references
+
+rails generate scaffold apartamento unidade:string ativo:boolean data_inclusao:datetime data_alteracao:datetime condominio:references
+
+rails generate scaffold funcionario nome:string tel:string dias_autorizados:string ativo:boolean data_inclusao:datetime data_alteracao:datetime apartamento:references
+
+rails generate scaffold veiculo marca:string modelo:string cor:string placa:string ativo:boolean data_inclusao:datetime data_alteracao:datetime apartamento:references
+
+rails generate scaffold morador nome:string rg:string cpf:string tel_residencial:string tel_celular:string tel_comercial:string ramal:string email:string parentesco:string tipo:string ativo:boolean data_inclusao:datetime data_alteracao:datetime apartamento:references
+
+//rails generate scaffold descricao_despesa_receita descricao:string natureza:string valor_fixo:decimal ativo:boolean data_inclusao:datetime data_alteracao:datetime
+
+rails generate scaffold descricao_tipo nome:string natureza:string valor_fixo:decimal ativo:boolean data_inclusao:datetime data_alteracao:datetime
+
+
+rails generate scaffold receita_a_receber valor:decimal data:date natureza:string ativo:boolean data_inclusao:datetime data_alteracao:datetime apartamento:references descricao_tipo:references morador:references
+
+rails generate scaffold receita_recebida valor:decimal data:date ativo:boolean data_inclusao:datetime data_alteracao:datetime receita_a_receber:references
+
+rails generate scaffold despesa data:date valor:decimal natureza:string ativo:boolean data_inclusao:datetime data_alteracao:datetime descricao_tipo:references
+
+rails db:drop db:create db:migrate
+
+rails server -b $IP -p $PORT
+
+
+Ajuda{
+https://stackoverflow.com/questions/3260345/list-of-rails-model-types?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+https://stackoverflow.com/questions/13445367/create-relationships-when-scaffolding?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+https://stackoverflow.com/questions/963420/undo-scaffolding-in-rails?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+https://stackoverflow.com/questions/4116067/purge-or-recreate-a-ruby-on-rails-database?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+http://curriculum.railsbridge.org/intro-to-rails/voting_on_topics
+https://github.com/bbatsov/rails-style-guide#find_by
+http://guides.rubyonrails.org/v2.3.11/active_record_querying.html
+http://www.pablocantero.com/blog/2010/07/26/utilizando-o-rails-form-select/
+https://stackoverflow.com/questions/13016295/add-css-class-to-rails-link-to-helper?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+}
+
+
+SOBRE ARRAY DE INPUT{
+https://railsguides.net/simple-form-array-text-input/
+https://stackoverflow.com/questions/3089849/ruby-on-rails-submitting-an-array-in-a-form/3090026
+https://stackoverflow.com/questions/3089849/ruby-on-rails-submitting-an-array-in-a-form?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+https://medium.com/@dmccoy/how-to-build-html-inputs-to-submit-an-array-of-hashes-with-a-rails-form-tag-that-work-with-strong-f70a6c03d78e
+
+MELHOR
+http://vicfriedman.github.io/blog/2015/07/18/create-multiple-objects-from-single-form-in-rails/
+}
+
+https://www.devmedia.com.br/ruby-on-rails-implementando-autenticacao-de-usuario/32124
+
+
+http://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html
