@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class TemperatureTest < Minitest::Test
-  def receitatest
-      receita = Despesas.new
+  def receitaOk
+      receita = receita.new
       receita.valor = 100
       receita.DescricaoTipo = DescricaoTipo.first
       receita.morador = "Nome Morador"
@@ -14,7 +14,7 @@ class TemperatureTest < Minitest::Test
 
 
 
-  def receitatest1
+  def receitatestErro
       receita = Despesas.new
       receita.valor = "R$100"
       receita.DescricaoTipo = DescricaoTipo.first
@@ -26,7 +26,7 @@ class TemperatureTest < Minitest::Test
   end
 
 
-  def receitatest2
+  def receitatestErroDescricao
       receita = Despesas.new
       receita.valor = R$100
       receita.DescricaoTipo = ""
@@ -37,7 +37,7 @@ class TemperatureTest < Minitest::Test
     
   end
   
-  def receitatests
+  def receitaErroMorador
       receita = Despesas.new
       receita.valor = 100,00
       receita.DescricaoTipo = DescricaoTipo.first
