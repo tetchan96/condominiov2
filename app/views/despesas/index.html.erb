@@ -22,8 +22,6 @@
   <div class="animated fadeIn">
     <div class="row">
 
-      <p id="notice"><%= notice %></p>
-      <!--<h1>Descricao Tipos</h1>-->
 
       <div class="col-md-12">
         <div class="card">
@@ -31,6 +29,17 @@
             <strong class="card-title">Despesas</strong>
           </div>
           <div class="card-body">
+            <% if notice %>            
+              <p id="notice">
+                <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                  <span class="badge badge-pill badge-success">Sucesso!</span>
+                  <%= notice %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </p>
+            <% end %>
             <%= render 'list', despesas: @despesas %> 
             <%= link_to 'Adicionar Despesa', new_despesa_path, class: "btn btn-outline-primary", role:"button" %>
           </div>

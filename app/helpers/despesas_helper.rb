@@ -70,4 +70,25 @@ module DespesasHelper
       end
     end
   end
+  def calculo_saldo(despesa, old_valor)
+    condominio = Condominio.first
+    if old_valor && old_valor != nil
+      despesa.valor -= old_valor
+    end
+    if despesa.ativo
+      if despesa.natureza == 'despesa_condominio'
+        condominio.update(saldo: condominio.saldo - despesa.valor)
+      else
+         condominio.update(fundo_reserva: condominio.fundo_reserva - despesa.valor)
+      end
+    else
+      if despesa.natureza == 'despesa_condominio'
+        condominio.update(saldo: condominio.saldo + despesa.valor)
+      else
+         condominio.update(fundo_reserva: condominio.fundo_reserva + despesa.valor)
+      end
+    end
+  end
+  
+  
 end
