@@ -72,34 +72,71 @@
           <%= link_to 'Voltar', @apartamento.condominio, class: "btn btn-outline-primary", role:"button" %>
         </div>
         
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="moradores-tab" data-toggle="tab" href="#moradores" role="tab" aria-controls="moradores" aria-selected="true">Moradores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="veiculos-tab" data-toggle="tab" href="#veiculos" role="tab" aria-controls="veiculos" aria-selected="false">Veículos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="funcionarios-tab" data-toggle="tab" href="#funcionarios" role="tab" aria-controls="funcionarios" aria-selected="false">Funcionários</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content pl-3 p-1" id="myTabContent">
+                            <div class="tab-pane fade show active" id="moradores" role="tabpanel" aria-labelledby="moradores-tab">
+                                <%= render 'veiculos/list', veiculos: @veiculos %>
+                                <%= link_to 'Adicionar Veículo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
+                            </div>
+                            <div class="tab-pane fade" id="veiculos" role="tabpanel" aria-labelledby="veiculos-tab">
+                                <%= render 'veiculos/list', veiculos: @veiculos %>
+                                <%= link_to 'Adicionar Veículo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
+                            </div>
+                            <div class="tab-pane fade" id="funcionarios" role="tabpanel" aria-labelledby="funcionarios-tab">
+                                <%= render 'funcionarios/list', funcionarios: @funcionarios %>
+                                <%= link_to 'Adicionar Funcionário', new_funcionario_path, class: "btn btn-outline-primary", role:"button" %>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+      </div>
+        <!--
         <div class="card">
           <div class="card-header">
             <strong class="card-title">Moradores</strong>
           </div>
           <div class="card-body">
-            <%= render 'moradors/list', moradors: @moradors %>
-            <%= link_to 'Adicionar Morador', new_morador_path, class: "btn btn-outline-primary", role:"button" %>
+            %= #render 'moradors/list', moradors: @moradors %>
+            %= #link_to 'Adicionar Morador', new_morador_path, class: "btn btn-outline-primary", role:"button" %>
           </div>
         </div>  
+        
         <div class="card">
           <div class="card-header">
             <strong class="card-title">Veículos</strong>
           </div>
           <div class="card-body">
-            <%= render 'veiculos/list', veiculos: @veiculos %>
-            <%= link_to 'Adicionar Veículo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
+            %= #render 'veiculos/list', veiculos: @veiculos %>
+            %= #link_to 'Adicionar Veículo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
           </div>
         </div> 
+        
         <div class="card">
           <div class="card-header">
             <strong class="card-title">Funcionários</strong>
           </div>
           <div class="card-body">
-            <%= render 'funcionarios/list', funcionarios: @funcionarios %>
-            <%= link_to 'Adicionar Funcionário', new_funcionario_path, class: "btn btn-outline-primary", role:"button" %>
+            %= #render 'funcionarios/list', funcionarios: @funcionarios %>
+            %= #link_to 'Adicionar Funcionário', new_funcionario_path, class: "btn btn-outline-primary", role:"button" %>
           </div>
         </div> 
-        
+        -->
         
       </div>
     </div>

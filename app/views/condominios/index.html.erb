@@ -30,6 +30,17 @@
             <strong class="card-title">Condomínios</strong>
           </div>
           <div class="card-body">
+            <% if notice %>            
+              <p id="notice">
+                <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                  <span class="badge badge-pill badge-success">Sucesso!</span>
+                  <%= notice %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </p>
+            <% end %>
             <%= render 'list', condominios: @condominios %>            
             <%= link_to 'Adicionar Condomínio', new_condominio_path, class: "btn btn-outline-primary", role:"button" %>
           </div>

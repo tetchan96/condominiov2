@@ -33,6 +33,7 @@ class DespesasController < ApplicationController
 
     respond_to do |format|
       if @despesa.save
+        calculo_saldo(@despesa, nil)
         format.html { redirect_to @despesa, notice: 'Despesa foi criada com sucesso!' }
         format.json { render :show, status: :created, location: @despesa }
       else
@@ -76,8 +77,10 @@ class DespesasController < ApplicationController
   # PATCH/PUT /despesas/1.json
   def update
     @despesa.data_alteracao = DateTime.now
+    old_valor = @despesa.valor
     respond_to do |format|
       if @despesa.update(despesa_params)
+        calculo_saldo(@despesa, old_valor)
         format.html { redirect_to @despesa, notice: 'Despesa foi atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @despesa }
       else
@@ -95,6 +98,7 @@ class DespesasController < ApplicationController
     @despesa.data_alteracao = DateTime.now
     respond_to do |format|
       if @despesa.update(@despesa.attributes)
+        calculo_saldo(@despesa, nil)
         format.html { redirect_to despesas_url, notice: 'Despesa foi excluída com sucesso.' }
         format.json { head :no_content }
       else

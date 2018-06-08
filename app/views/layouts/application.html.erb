@@ -181,10 +181,7 @@
                 <div class="col-sm-5">
                   <div class="user-area dropdown float-right">
                   <% if logged_in? %>
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <!--<img class="user-avatar rounded-circle" src="/images/admin.jpg" alt="User Avatar">-->
-                         <%= current_user.name %>
-                    </a>
+                      <%= link_to "Sair", sign_out_path, method: "delete" %>
                     <div class="user-menu dropdown-menu">
                       <%= link_to "Perfil", edit_user_path(current_user) %>
                       <%= link_to "Sair", sign_out_path, method: "delete" %>

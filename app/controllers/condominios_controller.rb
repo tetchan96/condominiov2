@@ -5,7 +5,14 @@ class CondominiosController < ApplicationController
   # GET /condominios
   # GET /condominios.json
   def index
-    @condominios = Condominio.all
+    respond_to do |format|
+      if(!current_condominio)
+        @condominios = Condominio.all
+      else
+        format.html { redirect_to current_condominio }
+        format.json { head :no_content }
+      end
+    end
   end
 
   # GET /condominios/1
@@ -17,7 +24,14 @@ class CondominiosController < ApplicationController
 
   # GET /condominios/new
   def new
-    @condominio = Condominio.new
+    respond_to do |format|
+      if(!current_condominio)
+        @condominio = Condominio.new
+      else
+        format.html { redirect_to current_condominio }
+        format.json { head :no_content }
+      end
+    end
   end
 
   # GET /condominios/1/edit
@@ -27,17 +41,21 @@ class CondominiosController < ApplicationController
   # POST /condominios
   # POST /condominios.json
   def create
-    @condominio = Condominio.new(condominio_params)
-
-    respond_to do |format|
-      if @condominio.save
-        format.html { redirect_to @condominio, notice: 'Condominio foi criado com sucesso!' }
-        format.json { render :show, status: :created, location: @condominio }
-        sign_out
-      else
-        format.html { render :new }
-        format.json { render json: @condominio.errors, status: :unprocessable_entity }
+    if(!current_condominio)
+      @condominio = Condominio.new(condominio_params)
+  
+      respond_to do |format|
+        if @condominio.save
+          format.html { redirect_to @condominio, notice: 'Condominio foi criado com sucesso!' }
+          format.json { render :show, status: :created, location: @condominio }
+          sign_out
+        else
+          format.html { render :new }
+          format.json { render json: @condominio.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      format.html { redirect_to current_condominio }
     end
   end
 
