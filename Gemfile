@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bcrypt'
+gem "watu_table_builder", :require => "table_builder"
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

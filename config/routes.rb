@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :compromissos
   get 'balanco/new'
 
   get 'users/new'
