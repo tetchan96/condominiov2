@@ -42,6 +42,8 @@ group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  #Gem para execução de Testes unitários
+  gem "rspec-rails"
 end
 
 group :development do
