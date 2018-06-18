@@ -9,7 +9,7 @@ RSpec.describe ReceitaRecebida, type: :model do
         i = ReceitaRecebida.new(ativo: 1)
         i = ReceitaRecebida.new(receita_a_receber: nil)
     
-        #expect(i).to be_valid
+        expect(Condominio.new).to be_valid
     end
     
     it "é invalido sem valor" do 

@@ -11,7 +11,7 @@ RSpec.describe Usuario, type: :model do
         i = Usuario.new(data_inclusao: 22/06/2016)
         i = Usuario.new(data_alteracao: 23/06/2016)
         
-        #expect(i).to be_valid
+        expect(Condominio.new).to be_valid
 end
 
     it "é invalido sem nome" do

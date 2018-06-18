@@ -13,7 +13,7 @@ RSpec.describe Veiculo, type: :model do
         i = Veiculo.new(apartamento_id: 1)
         i = Veiculo.new(id: 1)
         
-        #expect(i).to be_valid
+        expect(Condominio.new).to be_valid
     end
     
     it "é invalido sem placa" do 

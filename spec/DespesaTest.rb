@@ -12,7 +12,7 @@ RSpec.describe ReceitaAReceber, type: :model do
         i = ReceitaAReceber.new(descricao_tipo: nil)
         
         
-        #expect(i).to be_valid
+        expect(Condominio.new).to be_valid
     end
     
     it "é invalido sem valor" do 
