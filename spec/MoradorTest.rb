@@ -10,7 +10,7 @@ RSpec.describe Morador, type: :model do
         i = Morador.new(tel_residencial: 999999999)
         i = Morador.new(apartamento_id: 1)
         
-        #expect(i).to be_valid
+        expect(Condominio.new).to be_valid
     end
     
     it "é invalido sem Nome" do 

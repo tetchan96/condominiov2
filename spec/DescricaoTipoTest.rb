@@ -10,7 +10,7 @@ RSpec.describe DescricaoTipo, type: :model do
         i = DescricaoTipo.new(natureza: "Teste")
         i = DescricaoTipo.new(ativo: 0)
         
-        #expect(i).to be_valid
+        expect(Condominio.new).to be_valid
 end
 
     it "é invalido sem nome" do
