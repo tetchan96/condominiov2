@@ -41,25 +41,49 @@
 </p>
 <% end %>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @funcionario.nome %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Nome:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @funcionario.nome %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Telefone:</strong>
-  <%= @funcionario.tel %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Telefone:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @funcionario.tel %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Dias autorizados:</strong>
-  <%= @funcionario.dias_autorizados %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Dias Autorizados:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @funcionario.dias_autorizados %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Ativo:</strong>
-  <%= @funcionario.ativo %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Ativo:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @funcionario.ativo %>
+    </div>
+  </div>
+</div>
 <!--
 <p>
   <strong>Data inclusao:</strong>
@@ -71,10 +95,17 @@
   <%= @funcionario.data_alteracao %>
 </p>
 -->
-<p>
-  <strong>Apartamento:</strong>
-  <%= @funcionario.apartamento.unidade %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Apartamento:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @funcionario.apartamento.unidade %>
+    </div>
+  </div>
+</div>
+
 </div>
         </div>
         </div>

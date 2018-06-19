@@ -38,14 +38,26 @@
   </div>
 </p>
 <% end %>  
-<div>
-  <strong>Unidade:</strong>
-  <%= @apartamento.unidade %>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Unidade:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @apartamento.unidade %>
+    </div>
+  </div>
 </div>
 
-<div>
-  <strong>Ativo:</strong>
-  <%= @apartamento.ativo %>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Nome:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @apartamento.ativo %>
+    </div>
+  </div>
 </div>
 <!--
 <p>
@@ -58,10 +70,17 @@
   <%= @apartamento.data_alteracao %>
 </p>
 -->
-<div>
-  <strong>Condomínio:</strong>
-  <%= @apartamento.condominio.nome %>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Condominio:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @apartamento.condominio.nome %>
+    </div>
+  </div>
 </div>
+
 </div>
 </div>
 </div>
