@@ -8,12 +8,15 @@ module ReceitaRecebidasHelper
     @receitas = []
     i = 0
     @receber.each do |r|
-      @receitas << ReceitaRecebida.new
-      @receitas[i].ativo = true
-      @receitas[i].data_inclusao = DateTime.now
-      @receitas[i].data = DateTime.now
-      @receitas[i].receita_a_receber = r
-      i+=1
+      receita_existe = ReceitaRecebida.where(receita_a_receber_id: r.id).size
+      if(receita_existe < 1)
+        @receitas << ReceitaRecebida.new
+        @receitas[i].ativo = true
+        @receitas[i].data_inclusao = DateTime.now
+        @receitas[i].data = DateTime.now
+        @receitas[i].receita_a_receber = r
+        i+=1
+      end
     end
   end
   def somar_receitas(receitas)

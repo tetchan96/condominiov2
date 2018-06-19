@@ -67,7 +67,7 @@
 
 <p>
   <strong>Data alteracao:</strong>
-  <%= @apartamento.data_alteracao.strftime("%d/%m/%Y") %>
+  <%= @apartamento.data_alteracao ? @apartamento.data_alteracao.strftime("%d/%m/%Y") : '' %>
 </p>
 -->
 <div class="col col-md-6">

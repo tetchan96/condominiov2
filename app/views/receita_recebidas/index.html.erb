@@ -1,9 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1>Receitas Recebidas</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Receita a receber', receita_a_recebers_path %> </li>
+          <li>Receitas Recebidas</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
 
-<h1>Receita Recebidas</h1>
+      
+      <!--<h1>Descricao Tipos</h1>-->
 
-<%= render 'list', receita_recebidas: @receita_recebidas %> 
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Receitas Recebidas</strong>
+          </div>
+          <div class="card-body">
+            <% if notice %>            
+              <p id="notice">
+                <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                  <span class="badge badge-pill badge-success">Sucesso!</span>
+                  <%= notice %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </p>
+            <% end %>
+            <%= render 'list', receita_recebidas: @receita_recebidas %> 
+            <%= link_to 'Adicionar Receita Recebida', new_receita_recebida_path, class: "btn btn-outline-primary", role:"button" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->
 
-<br>
-
-<%= link_to 'New Receita Recebida', new_receita_recebida_path %>

@@ -1,6 +1,41 @@
-<h1>Editing Receita Recebida</h1>
-
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Editar Receita Recebida</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li> <%= link_to 'Receita a Receber', receita_a_recebers_path %></li>
+          <li><%= link_to 'Recebidas', receita_recebidas_path %> </li>
+          <li> <%= link_to @receita_recebida.id, @receita_recebida %></li>
+          <li class="active">Editar</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Editar</strong>
+          </div>
+          <div class="card-body card-block">
 <%= render 'form', receita_recebida: @receita_recebida %>
-
-<%= link_to 'Show', @receita_recebida %> |
-<%= link_to 'Back', receita_recebidas_path %>
+  </div>
+        </div>
+        <%= link_to 'Exibir', @receita_recebida, class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', receita_recebidas_path, class: "btn btn-outline-primary", role:"button" %>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->
