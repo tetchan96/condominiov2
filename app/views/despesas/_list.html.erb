@@ -15,7 +15,7 @@
   <tbody>
     <% despesas.each do |despesa| %>
       <tr>
-        <td><%= despesa.data %></td>
+        <td><%= despesa.data.strftime("%d/%m/%Y") %></td>
         <td><%= despesa.valor.round(2) %></td>
         <td><%= despesa.natureza %></td>
         <td><%= despesa.ativo ? 'Ativo' : 'Desativo' %></td>

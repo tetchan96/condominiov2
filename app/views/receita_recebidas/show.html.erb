@@ -1,3 +1,35 @@
+<div class="breadcrumbs">
+  <div class="col-sm-4">
+    <div class="page-header float-left">
+      <div class="page-title">
+        <h1> Receita Recebida</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="page-header float-right">
+      <div class="page-title">
+        <ol class="breadcrumb text-right">
+          <li><%= link_to 'Condomínio', current_condominio %></li>
+          <li><%= link_to 'Receita a receber', receita_a_recebers_path %> </li>
+          <li><%= link_to 'Recebidas', receita_recebidas_path %> </li>
+          <li class="active"><%= @receita_recebida.id %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Receita Recebida: <%= @receita_recebida.id %></strong>
+          </div>
+          <div class="card-body card-block">
+
 <% if notice %>            
 <p id="notice">
   <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
@@ -9,36 +41,86 @@
   </div>
 </p>
 <% end %>
-
 <p>
-  <strong>Valor:</strong>
-  <%= @receita_recebida.valor %>
-</p>
+  
+  <div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Valor:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.valor %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Data:</strong>
-  <%= @receita_recebida.data %>
-</p>
+  <div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Data:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.data.strftime("%d/%m/%Y") %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Ativo:</strong>
-  <%= @receita_recebida.ativo %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Ativo:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.ativo %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Data inclusao:</strong>
-  <%= @receita_recebida.data_inclusao %>
-</p>
 
-<p>
-  <strong>Data alteracao:</strong>
-  <%= @receita_recebida.data_alteracao %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Data inclusao:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.data_inclusao.strftime ("%d/%m/YYYY") %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Receita a receber:</strong>
-  <%= @receita_recebida.receita_a_receber %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Data alteracao:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.data_alteracao ? @receita_recebida.data_alteracao.strftime("%d/%m/%Y") : ''%>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_receita_recebida_path(@receita_recebida) %> |
-<%= link_to 'Back', receita_recebidas_path %>
+  <div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Receita a receber:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.receita_a_receber.descricao_tipo.nome %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+</div>
+        </div>
+        </div>
+        </div>
+        <%= link_to 'Editar', edit_receita_recebida_path(@receita_recebida), class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', receita_a_recebers_path, class: "btn btn-outline-primary", role:"button" %>
+      </div>
+    </div>
+  </div><!-- .animated -->
+</div><!-- .content -->

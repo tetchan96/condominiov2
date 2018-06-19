@@ -26,7 +26,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <strong>Receita a receber: ID</strong>
+            <strong>Receita a receber: <%= @receita_a_receber.id %></strong>
           </div>
           <div class="card-body card-block">
 
@@ -42,51 +42,94 @@
 </p>
 <% end %>
 
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Valor:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_a_receber.valor.round(2) %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Valor:</strong>
-  <%= @receita_a_receber.valor.round(2) %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Data:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_a_receber.data.strftime("%d/%m/%Y") %>
+    </div>
+  </div>
+</div>
+  
+  <div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Natureza:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_a_receber.natureza %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Data:</strong>
-  <%= @receita_a_receber.data %>
-</p>
 
-<p>
-  <strong>Natureza:</strong>
-  <%= @receita_a_receber.natureza %>
-</p>
-
-<p>
-  <strong>Ativo:</strong>
-  <%= @receita_a_receber.ativo %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Ativo:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_a_receber.ativo %>
+    </div>
+  </div>
+</div>
 <!--
 <p>
   <strong>Data inclusao:</strong>
-  <%= @receita_a_receber.data_inclusao %>
+  <%= @receita_a_receber.data_inclusao.strftime("%d/%m/%YYYY") %>
 </p>
 
 <p>
   <strong>Data alteracao:</strong>
-  <%= @receita_a_receber.data_alteracao %>
+  <%= @receita_a_receber.data_alteracao ? @receita_a_receber.data_alteracao.strftime("%d/%m/%Y") : '' %>
 </p>
 -->
-<p>
-  <strong>Apartamento:</strong>
-  <%= @receita_a_receber.apartamento.unidade %>
-</p>
 
-<p>
-  <strong>Descricao tipo:</strong>
-  <%= @receita_a_receber.descricao_tipo.nome %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Apartamento:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_a_receber.apartamento.unidade %>
+    </div>
+  </div>
+</div>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Descrição Tipo:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_a_receber.descricao_tipo.nome %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Morador:</strong>
-  <%= @receita_a_receber.morador.nome %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Morador:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_a_receber.morador.nome %>
+    </div>
+  </div>
+</div>
+
 
 
 </div>
