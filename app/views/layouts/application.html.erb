@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="/assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="/assets/css/cs-skin-elastic.css">
     <!-- <link rel="stylesheet" href="/assets/css/bootstrap-select.less"> -->
-    <link rel="stylesheet" href="/assets/css/lib/datatable/dataTables.bootstrap.min.css">
+    <!--<link rel="stylesheet" href="/assets/css/lib/datatable/dataTables.bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+ 
     <link rel="stylesheet" href="/assets/scss/style.css">
     <link rel="stylesheet" href="/assets/css/lib/chosen/chosen.min.css">
     <link rel="stylesheet" href="/assets/css/calendar.css">
@@ -66,7 +68,9 @@
             </li>
             <h3 class="menu-title"><%= current_condominio.nome %></h3><!-- /.menu-title -->
             <li class="menu-item-has-children active dropdown">
-              <%= link_to 'Condomínio', current_condominio %>
+               <%= link_to current_condominio do %>
+                <i class="menu-icon fa fa-laptop"></i> Condomínio
+              <% end %>
             </li>
             <li class="menu-item-has-children active dropdown">
               <%= link_to 'Relatório', relatorio_path %>
@@ -226,18 +230,22 @@
     <script src="/assets/js/lib/data-table/datatables-init.js"></script>
     
     <script src="/assets/js/lib/chosen/chosen.jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-          $('#bootstrap-data-table-export').DataTable();
-        } );
-    </script>
+
     <script>
         jQuery(document).ready(function() {
-            jQuery(".standardSelect").chosen({
-                disable_search_threshold: 10,
-                no_results_text: "Oops, nothing found!",
-                width: "100%"
-            });
+          jQuery(".standardSelect").chosen({
+              disable_search_threshold: 10,
+              no_results_text: "Oops, nothing found!",
+              width: "100%"
+          });
+          jQuery('#bootstrap-data-table-despesas').DataTable();
+          jQuery('#bootstrap-data-table-apartamento').DataTable();
+          jQuery('#bootstrap-data-table-descricao').DataTable();
+          jQuery('#bootstrap-data-table-funcionario').DataTable();
+          jQuery('#bootstrap-data-table-moradores').DataTable();
+          jQuery('#bootstrap-data-table-veiculo').DataTable();
+          jQuery('#bootstrap-data-table-receita-a-receber').DataTable();
+          jQuery('#bootstrap-data-table-receitas-recebidas').DataTable();
         });
     </script>
   </body>

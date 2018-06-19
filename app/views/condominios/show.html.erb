@@ -57,7 +57,7 @@
       <strong>Saldo:</strong>
     </div>
     <div class="col col-md-6">
-      <%= @condominio.saldo %>
+      <%= @condominio.saldo.round(2) %>
     </div>
   </div>
 </div>
@@ -67,7 +67,7 @@
       <strong>Fundo reserva:</strong>
     </div>
     <div class="col col-md-6">
-      <%= @condominio.fundo_reserva %>
+      <%= @condominio.fundo_reserva.round(2) %>
     </div>
   </div>
 </div>

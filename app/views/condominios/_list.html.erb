@@ -12,8 +12,8 @@
     <% condominios.each do |condominio| %>
       <tr>
         <td><%= condominio.nome %></td>
-        <td><%= condominio.saldo %></td>
-        <td><%= condominio.fundo_reserva %></td>
+        <td><%= condominio.saldo.round(2) %></td>
+        <td><%= condominio.fundo_reserva.round(2) %></td>
         <td><%= link_to 'Exibir', condominio, class: 'btn btn-sm btn-primary' %></td>
         <td><%= link_to 'Editar', edit_condominio_path(condominio), class: 'btn btn-sm btn-success' %></td>
         <td><%= link_to 'Excluir', condominio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>

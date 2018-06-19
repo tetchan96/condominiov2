@@ -5,7 +5,9 @@
                   <th>Natureza</th>
                   <th>Valor fixo</th>
                   <th>Ativo</th>
-                  <th colspan="3"></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -13,7 +15,7 @@
                   <tr>
                     <td><%= descricao_tipo.nome %></td>
                     <td><%= descricao_tipo.natureza %></td>
-                    <td><%= descricao_tipo.valor_fixo %></td>
+                    <td><%= descricao_tipo.valor_fixo.round(2) %></td>
                     <td><%= descricao_tipo.ativo ? 'Ativo' : 'Desativo' %></td>
                     <td><%= link_to 'Exibir', descricao_tipo, class: 'btn btn-sm btn-primary' %></td>
                     <td><%= link_to 'Editar', edit_descricao_tipo_path(descricao_tipo), class: 'btn btn-sm btn-success' %></td>
