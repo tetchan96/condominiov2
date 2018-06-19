@@ -7,6 +7,7 @@
       <th>Natureza</th>
       <th>AP.</th>
       <th>Data</th>
+      <th>Dt.Pagameto</th>
       <th>Valor</th>
       <th>Valor a pagar</th>
     </tr>
@@ -27,11 +28,12 @@
             <%= receita.receita_a_receber.apartamento.unidade %>
           </td>
           <td>
-            <%= receita.data.strftime("%d/%m/%Y") %>
+            <%= receita.receita_a_receber.data.strftime("%d/%m/%Y") %>
             <%= r.hidden_field :data, class:"form-control", value: receita.data %>
           </td>
+          <td> <%= receita.data.strftime("%d/%m/%Y") %></td>
           <td>
-            <%= receita.receita_a_receber.valor %>
+            <%= receita.receita_a_receber.valor.round(2) %>
           </td>
           <td><%= r.text_field :valor, class:"form-control", value: receita.valor %></td>
         </tr>
