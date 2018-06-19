@@ -69,39 +69,57 @@
             <h3 class="menu-title"><%= current_condominio.nome %></h3><!-- /.menu-title -->
             <li class="menu-item-has-children active dropdown">
                <%= link_to current_condominio do %>
-                <i class="menu-icon fa fa-laptop"></i> Condomínio
+                <i class="menu-icon fa  fa-home"></i> Condomínio
               <% end %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to 'Relatório', relatorio_path %>
+              <%= link_to relatorio_path do %>
+              <i class="menu-icon fa fa-file-text"></i>Relatório
+              <% end %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to 'Despesas', despesas_path %>
+              <%= link_to  despesas_path do %>
+              <i class="menu-icon fa  fa-usd"></i>Despesas
+              <% end %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to 'Despesa mensal', despesa_mensal_path %>
+              <%= link_to  despesa_mensal_path do %>
+              <i class="menu-icon fa  fa-usd"></i>Despesa mensal
+              <% end %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to 'Receitas', receita_a_recebers_path %>
+              <%= link_to  receita_a_recebers_path do %>
+               <i class="menu-icon fa   fa-money"></i>Receitas
+              <% end %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to 'Receita mensal', receita_mensal_path %>
+              <%= link_to  receita_mensal_path do %>
+              <i class="menu-icon fa   fa-money"></i>Receita mensal
+              <% end %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to 'Descrição Tipos', descricao_tipos_path %>
+              <%= link_to  descricao_tipos_path do %>
+              <i class="menu-icon fa   fa-edit"></i>Descrição Tipos
+              <% end %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to "Calendário", compromissos_path %>
+              <%= link_to  compromissos_path do %>
+              <i class="menu-icon fa   fa-calendar"></i>Calendário
+              <% end %>
             </li>
             <h3 class="menu-title">Usuario</h3><!-- /.menu-title -->
             <!--<li class="menu-item-has-children active dropdown">
               <%= link_to "Perfil", current_user %>
             </li>-->
             <li class="menu-item-has-children active dropdown">
-              <%= link_to "Configurações", edit_user_path(current_user) %>
+              <%= link_to  edit_user_path(current_user) do %>
+              <i class="menu-icon fa   fa-gears"></i>Configurações
+              <% end %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to "Sair", sign_out_path, method: "delete" %>
+              <%= link_to  sign_out_path, method: "delete" do %>
+              <i class="menu-icon fa   fa-power-off"></i>Sair
+              <% end %>
             </li>
             <!--
             <li class="menu-item-has-children active dropdown">
