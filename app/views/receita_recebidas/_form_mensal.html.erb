@@ -27,7 +27,7 @@
             <%= receita.receita_a_receber.apartamento.unidade %>
           </td>
           <td>
-            <%= receita.data %>
+            <%= receita.data.strftime("%d/%m/%Y") %>
             <%= r.hidden_field :data, class:"form-control", value: receita.data %>
           </td>
           <td>

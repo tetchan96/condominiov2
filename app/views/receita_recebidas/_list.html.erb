@@ -15,7 +15,7 @@
     <% receita_recebidas.each do |receita_recebida| %>
       <tr>
         <td><%= receita_recebida.valor.round(2) %></td>
-        <td><%= receita_recebida.data %></td>
+        <td><%= receita_recebida.data.strftime("%d/%m/%Y") %></td>
         <td><%= receita_recebida.ativo %></td>
         <td><%= receita_recebida.receita_a_receber.descricao_tipo.nome %></td>
         <td><%= link_to 'Show', receita_recebida %></td>

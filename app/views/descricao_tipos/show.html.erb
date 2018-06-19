@@ -63,12 +63,12 @@
 <!--
 <p>
   <strong>Data inclusao:</strong>
-  <%= @descricao_tipo.data_inclusao %>
+  <%= @descricao_tipo.data_inclusao.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
   <strong>Data alteracao:</strong>
-  <%= @descricao_tipo.data_alteracao %>
+  <%= @descricao_tipo.data_alteracao ? @descricao_tipo.data_alteracao.strftime("%d/%m/%Y") : '' %>
 </p>
 -->
 

@@ -18,7 +18,7 @@
     <% receita_a_recebers.each do |receita_a_receber| %>
       <tr>
         <td><%= receita_a_receber.valor.round(2) %></td>
-        <td><%= receita_a_receber.data %></td>
+        <td><%= receita_a_receber.data.strftime("%d/%m/%Y") %></td>
         <td><%= receita_a_receber.natureza %></td>
         <td><%= receita_a_receber.ativo ? 'Ativo' : 'Desativo' %></td>
         <td><%= receita_a_receber.apartamento.unidade %></td>

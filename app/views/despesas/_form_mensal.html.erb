@@ -23,7 +23,7 @@
             <%= d.hidden_field :natureza, class:"form-control", value: despesa.natureza %>
           </td>
           <td>
-            <%= despesa.data %>
+            <%= despesa.data.strftime("%d/%m/%Y") %>
             <%= d.hidden_field :data, class:"form-control", value: despesa.data %>
           </td>
           <td><%= d.text_field :valor, class:"form-control", value: despesa.valor %></td>

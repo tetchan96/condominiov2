@@ -162,12 +162,12 @@
 <!--
 <p>
   <strong>Data inclusao:</strong>
-  <%= @morador.data_inclusao %>
+  <%= @morador.data_inclusao.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
   <strong>Data alteracao:</strong>
-  <%= @morador.data_alteracao %>
+  <%= @morador.data_alteracao ? @morador.data_alteracao.strftime("%d/%m/%Y") : '' %>
 </p>
 -->
 <div class="col col-md-6">

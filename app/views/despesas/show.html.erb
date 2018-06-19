@@ -42,7 +42,7 @@
 
 <p>
   <strong>Data:</strong>
-  <%= @despesa.data %>
+  <%= @despesa.data.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
@@ -67,7 +67,7 @@
 
 <p>
   <strong>Data alteracao:</strong>
-  <%= @despesa.data_alteracao %>
+  <%= @despesa.data_alteracao ? @despesa.data_alteracao.strftime("%d/%m/%Y") : '' %>
 </p>
 -->
 <p>

@@ -50,7 +50,7 @@
 
 <p>
   <strong>Data:</strong>
-  <%= @receita_a_receber.data %>
+  <%= @receita_a_receber.data.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
@@ -65,12 +65,12 @@
 <!--
 <p>
   <strong>Data inclusao:</strong>
-  <%= @receita_a_receber.data_inclusao %>
+  <%= @receita_a_receber.data_inclusao.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
   <strong>Data alteracao:</strong>
-  <%= @receita_a_receber.data_alteracao %>
+  <%= @receita_a_receber.data_alteracao ? @receita_a_receber.data_alteracao.strftime("%d/%m/%Y") : '' %>
 </p>
 -->
 <p>
