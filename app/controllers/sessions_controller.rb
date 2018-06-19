@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
         redirect_to @condominio 
       end
     else
+      @errors = 'Login/ senha inválido, verifique seus dados... ';
       render 'new'
     end
   end

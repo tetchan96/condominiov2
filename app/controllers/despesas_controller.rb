@@ -109,7 +109,11 @@ class DespesasController < ApplicationController
   end
   
   def mensal
-    gerar_despesa_mensal
+    if verificar_moradores
+      gerar_despesa_mensal
+    else
+      @errors = 'Verifique os moradores dos apartamentos para continuar com o registro das despesas mensais. Undiades: '+ @ap_problema.join(',')
+    end
   end
 
   private

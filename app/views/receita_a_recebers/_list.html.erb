@@ -8,14 +8,16 @@
       <th>Apartamento</th>
       <th>Descricao tipo</th>
       <th>Morador</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% receita_a_recebers.each do |receita_a_receber| %>
       <tr>
-        <td><%= receita_a_receber.valor %></td>
+        <td><%= receita_a_receber.valor.round(2) %></td>
         <td><%= receita_a_receber.data %></td>
         <td><%= receita_a_receber.natureza %></td>
         <td><%= receita_a_receber.ativo ? 'Ativo' : 'Desativo' %></td>

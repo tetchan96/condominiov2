@@ -28,7 +28,7 @@
                 <tr>
                   <td><%= value[0].nome %></td>
                   <% value[1].each do |valor| %>
-                    <td><%= valor %></td>
+                    <td><%= valor.round(2) %></td>
                   <% end %>
                 </tr>
               <% end %>
@@ -36,7 +36,7 @@
               <tr>
                 <th>Total</th>
                 <% @lista_despesas_total.each do |total| %>
-                    <td><%= total %></td>
+                    <td><%= total.round(2) %></td>
                 <% end %>
               </tr>
             </tbody>

@@ -109,8 +109,8 @@
                         </ul>
                         <div class="tab-content pl-3 p-1" id="myTabContent">
                             <div class="tab-pane fade show active" id="moradores" role="tabpanel" aria-labelledby="moradores-tab">
-                                <%= render 'veiculos/list', veiculos: @veiculos %>
-                                <%= link_to 'Adicionar Veículo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
+                                <%= render 'moradors/list', moradors: @moradors %>
+                                <%= link_to 'Adicionar Morador', new_morador_path, class: "btn btn-outline-primary", role:"button" %>
                             </div>
                             <div class="tab-pane fade" id="veiculos" role="tabpanel" aria-labelledby="veiculos-tab">
                                 <%= render 'veiculos/list', veiculos: @veiculos %>

@@ -51,7 +51,7 @@ module DespesasHelper
       receita.natureza = 'taxa_condominio'
       receita.descricao_tipo = descricao_conta
       receita.valor = valor_ap
-      receita.morador = Morador.where(apartamento_id: ap.id).first
+      receita.morador = Morador.where(apartamento_id: ap.id, ativo: true).first
       receita.apartamento = ap
       if receita.save == false
         @sucesso = false
@@ -63,7 +63,7 @@ module DespesasHelper
       receita.natureza = 'fundo_reserva'
       receita.descricao_tipo = descricao_fundo
       receita.valor = descricao_fundo.valor_fixo
-      receita.morador = Morador.where(apartamento_id: ap.id).first
+      receita.morador = Morador.where(apartamento_id: ap.id, ativo: true).first
       receita.apartamento = ap
       if receita.save == false
         @sucesso = false
@@ -88,6 +88,19 @@ module DespesasHelper
          condominio.update(fundo_reserva: condominio.fundo_reserva + despesa.valor)
       end
     end
+  end
+  
+  def verificar_moradores
+    @retorno = true
+    @ap_problema = []
+    apartamento = Apartamento.where(ativo: true)
+    apartamento.each do |ap|
+      if Morador.where(apartamento_id: ap.id, ativo: true).size < 1
+        @retorno = false
+        @ap_problema << ap.unidade
+      end
+    end
+    @retorno
   end
   
   
