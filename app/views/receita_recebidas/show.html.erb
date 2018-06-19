@@ -42,34 +42,74 @@
 </p>
 <% end %>
 <p>
-  <strong>Valor:</strong>
-  <%= @receita_recebida.valor %>
-</p>
+  
+  <div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Valor:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.valor %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Data:</strong>
-  <%= @receita_recebida.data.strftime("%d/%m/%Y") %>
-</p>
+  <div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Data:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.data.strftime("%d/%m/%Y") %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Ativo:</strong>
-  <%= @receita_recebida.ativo %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Ativo:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.ativo %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Data inclusao:</strong>
-  <%= @receita_recebida.data_inclusao.strftime("%d/%m/%Y") %>
-</p>
 
-<p>
-  <strong>Data alteracao:</strong>
-  <%= @receita_recebida.data_alteracao ? @receita_recebida.data_alteracao.strftime("%d/%m/%Y") : ''%>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Data inclusao:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.data_inclusao.strftime ("%d/%m/Y") %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Receita a receber:</strong>
-  <%= @receita_recebida.receita_a_receber.descricao_tipo.nome %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Data alteracao:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.data_alteracao ? @receita_recebida.data_alteracao.strftime("%d/%m/%Y") : ''%>
+    </div>
+  </div>
+</div>
+
+  <div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Receita a receber:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @receita_recebida.receita_a_receber.descricao_tipo.nome %>
+    </div>
+  </div>
+</div>
+
 
 
 
