@@ -39,19 +39,39 @@
   </div>
 </p>
 <% end %>
-<p>
-  <strong>Nome:</strong>
-  <%= @condominio.nome %>
-</p>
-<p>
-  <strong>Saldo:</strong>
-  <%= @condominio.saldo %>
-</p>
 
-<p>
-  <strong>Fundo reserva:</strong>
-  <%= @condominio.fundo_reserva %>
-</p>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Nome:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @condominio.nome %>
+    </div>
+  </div>
+</div>
+
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Saldo:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @condominio.saldo %>
+    </div>
+  </div>
+</div>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <strong>Fundo reserva:</strong>
+    </div>
+    <div class="col col-md-6">
+      <%= @condominio.fundo_reserva %>
+    </div>
+  </div>
+</div>
+
 
 </div>
         </div>
