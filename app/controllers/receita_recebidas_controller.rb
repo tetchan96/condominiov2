@@ -28,6 +28,7 @@ class ReceitaRecebidasController < ApplicationController
     @receita_recebida = ReceitaRecebida.new(receita_recebida_params)
     @receita_recebida.ativo = true
     @receita_recebida.data_inclusao = DateTime.now
+    calculo_saldo(@receita_recebida, nil)
     respond_to do |format|
       if @receita_recebida.save
         format.html { redirect_to @receita_recebida, notice: 'Receita recebida foi criada com sucesso!' }
@@ -43,8 +44,10 @@ class ReceitaRecebidasController < ApplicationController
   # PATCH/PUT /receita_recebidas/1.json
   def update
     @receita_recebida.data_alteracao = DateTime.now
+    old_valor = @receita_recebida.valor
     respond_to do |format|
       if @receita_recebida.update(receita_recebida_params)
+        calculo_saldo(@receita_recebida, old_valor)
         format.html { redirect_to @receita_recebida, notice: 'Receita recebida foi atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @receita_recebida }
       else
@@ -60,6 +63,7 @@ class ReceitaRecebidasController < ApplicationController
     #@receita_recebida.destroy
     @receita_recebida.ativo = !@receita_recebida.ativo
     @receita_recebida.data_alteracao = DateTime.now
+    calculo_saldo(@receita_recebida, nil)
     respond_to do |format|
       if @receita_recebida.update(@receita_recebida.attributes)
         format.html { redirect_to receita_recebidas_url, notice: 'Receita recebida foi excluída com sucesso.' }

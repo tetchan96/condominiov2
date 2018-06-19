@@ -28,10 +28,22 @@
             <strong>Adicionar receitas mensais</strong>
           </div>
           <div class="card-body card-block">
-<%= render 'form_mensal', receitas: @receitas %>
+          <% if @receitas && @receitas.size < 1 %>            
+          <p id="notice">
+            <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+              <span class="badge badge-pill badge-danger">Erro!</span>
+              <%= @errors %>
+              <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>-->
+            </div>
+          </p>
+          <% else %>  
+            <%= render 'form_mensal', receitas: @receitas %>
+          <% end %> 
           </div>
         </div>
-<%= link_to 'Voltar', receita_a_recebers_path, class: "btn btn-outline-primary", role:"button" %>
+        <%= link_to 'Voltar', receita_a_recebers_path, class: "btn btn-outline-primary", role:"button" %>
       </div>
     </div>
   </div><!-- .animated -->
