@@ -4,66 +4,71 @@ RSpec.describe Veiculo, type: :model do
     
     
     it "é valido" do 
-        i = Veiculo.new(marca: "Ferrari")
-        i = Veiculo.new(modelo: "456Spyder")
-        i = Veiculo.new(cor: "Dourado")
-        i = Veiculo.new(ativo: 1)
-        i = Veiculo.new(placa: "0210")
-        i = Veiculo.new(apartamento: nil)
-        i = Veiculo.new(apartamento_id: 1)
-        i = Veiculo.new(id: 1)
-        
-        expect(Condominio.new).to be_valid
+        i = Veiculo.new
+        i.marca = "Ferrari"
+        i.modelo = "456Spyder"
+        i.cor = "Dourado"
+        i.ativo = 1
+        i.placa = "0210"
+        i.id = 1
+        i = Apartamento.new
+        i = Condominio.new
+        expect(i).to be_valid
+    end
+    it "é invalido sem marca " do
+        i = Veiculo.new
+        i.marca = nil
+        i.modelo = "456Spyder"
+        i.cor = "Dourado"
+        i.ativo = 1
+        i.placa = "0210"
+        i.id = 1
     end
     
     it "é invalido sem placa" do 
-        i = Veiculo.new(marca: nil)
-        i = Veiculo.new(modelo: "456Spyder")
-        i = Veiculo.new(cor: "Dourado")
-        i = Veiculo.new(ativo: 1)
-        i = Veiculo.new(placa: "0210")
-        i = Veiculo.new(apartamento: nil)
-        i = Veiculo.new(apartamento_id: 1)
-        i = Veiculo.new(id: 1)
+        i = Veiculo.new
+        i.marca = "Ferrari"
+        i.modelo = "456Spyder"
+        i.cor = "Dourado"
+        i.ativo = 1
+        i.placa = nil
+        i.id = 1
         
         expect(i).to_not be_valid
     end
     
     it "é invalido sem modelo" do 
-        i = Veiculo.new(marca: "Ferrari")
-        i = Veiculo.new(modelo: nil)
-        i = Veiculo.new(cor: "Dourado")
-        i = Veiculo.new(ativo: 1)
-        i = Veiculo.new(placa: "0210")
-        i = Veiculo.new(apartamento: nil)
-        i = Veiculo.new(apartamento_id: 1)
-        i = Veiculo.new(id: 1)
+        i = Veiculo.new
+        i.marca = "FUSCÃO DE AÇO"
+        i.modelo = nil
+        i.cor = "Dourado"
+        i.ativo = 1
+        i.placa = "0210"
+        i.id = 1
         
         expect(i).to_not be_valid
     end
     
     it "é invalido sem cor" do 
-        i = Veiculo.new(marca: "Ferrari")
-        i = Veiculo.new(modelo: "456Spyder")
-        i = Veiculo.new(cor: nil)
-        i = Veiculo.new(ativo: 1)
-        i = Veiculo.new(placa: "0210")
-        i = Veiculo.new(apartamento: nil)
-        i = Veiculo.new(apartamento_id: 1)
-        i = Veiculo.new(id: 1)
+        i = Veiculo.new
+        i.marca = "Ferrari"
+        i.modelo = "456Spyder"
+        i.cor = nil
+        i.ativo = 1
+        i.placa = "0210"
+        i.id = 1
         
         expect(i).to_not be_valid
     end
     
     it "é invalido sem placa" do 
-        i = Veiculo.new(marca: "Ferrari")
-        i = Veiculo.new(modelo: "456Spyder")
-        i = Veiculo.new(cor: "Prata")
-        i = Veiculo.new(ativo: 1)
-        i = Veiculo.new(placa: nil)
-        i = Veiculo.new(apartamento: nil)
-        i = Veiculo.new(apartamento_id: 1)
-        i = Veiculo.new(id: 1)
+    i = Veiculo.new
+        i.marca = "Teste"
+        i.modelo = "456Spyder"
+        i.cor = "Dourado"
+        i.ativo = 1
+        i.placa = nil
+        i.id = 1
         
         expect(i).to_not be_valid
     end
